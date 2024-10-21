@@ -1,0 +1,84 @@
+@use '../abstracts/' as *;
+@use '../abstracts/tokens/tokens' as *;
+
+.site-head {
+  padding-block: var(--space-300);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    > svg {
+      height: fit-content;
+      border: 1px solid #dddddd;
+      border-radius: $border-radius-rounded-full;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    padding: var(--space-100);
+
+    > nav {
+      @include breakpoint-down(medium) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        inset: 0;
+        z-index: 9998;
+        background-color: $color-page-background;
+        padding: var(--space-300);
+
+        &[data-visible='false'] {
+          display: none;
+        }
+
+        ul {
+          font-size: $font-size-600;
+          flex-direction: column;
+          height: fit-content;
+          align-items: flex-start;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  &__nav-toggle {
+    display: grid;
+    place-items: center;
+    border: 0;
+    outline: 0;
+    background-color: $color-surface-inverse;
+    border-radius: $border-radius-rounded-full;
+    padding: var(--space-100);
+    z-index: 9999;
+
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+
+  &__theme-toggle {
+    border: 0;
+    outline: 0;
+    display: flex;
+    z-index: 9999;
+    cursor: pointer;
+    -webkit-appearance: button;
+    height: min(15vw, rem(65));
+    aspect-ratio: 1 / 1;
+    border-radius: $border-radius-rounded-full;
+    box-shadow: inset -15px -13px 3px -2px $toggle-moon;
+    background-color: $toggle-sun;
+  }
+}

@@ -1,0 +1,71 @@
+@use '../abstracts/breakpoint' as *;
+@use '../abstracts/tokens/tokens' as *;
+@use '../abstracts/function' as *;
+
+.post {
+  --flow-space: var(--space-500);
+  max-width: 42rem;
+  width: 100%;
+  margin-inline: auto;
+
+  :is(p, strong, em, li, figcaption, blockquote) {
+    max-width: 65ch;
+  }
+
+  h2 {
+    font-size: $font-size-600;
+  }
+
+  h3 {
+    font-size: $font-size-500;
+  }
+
+  :is(h2, h3) {
+    --flow-space: var(--space-700);
+    max-width: 100%;
+  }
+
+  :is(ol, ul) > li + li {
+    margin-block: var(--space-100);
+  }
+
+  :is(h2, h3) + :is(p, ul) {
+    --flow-space: var(--space-300);
+  }
+
+  h4 + :is(p, ul) {
+    --flow-space: var(--space-200);
+  }
+
+  h2 + h3 {
+    --flow-space: var(--space-400);
+  }
+
+  :is(h2, h3, h4, h5) {
+    .anchor:not(:hover) {
+      text-decoration: 0;
+    }
+  }
+
+  img {
+    height: auto;
+    border-radius: $border-radius-1;
+    border: 2.5px solid $color-border-inverse;
+  }
+
+  strong + h3 {
+    padding-block-end: var(--space-100);
+    width: fit-content;
+    border-bottom: 0.15em solid $color-border-primary-600;
+  }
+
+  &-list {
+    --flow-space: var(--space-800);
+
+    h2 {
+      a:not(:hover) {
+        text-decoration-color: transparent;
+      }
+    }
+  }
+}
