@@ -10,12 +10,12 @@ tags:
 ---
 The `path` module in Node.js provides utilities for working with file and directory paths. It's a core module, meaning it comes pre-installed with Node.js, so there's no need to install it separately.
 
-##Why Use the path Module?
+## Why Use the path Module?
 1. Cross-Platform Compatibility: File paths differ between operating systems (/ on Unix-like vs \ on Windows). The path module ensures your code works seamlessly across platforms.
 2. Simplifies Path Operations: Tasks like joining, resolving, or normalizing paths become straightforward.
 3. Error Prevention: Avoid hardcoding paths, reducing potential errors and improving maintainability.
 
-##importing path module
+## importing path module
 ```js
 const path = require('path'); // CommonJS
 
@@ -25,8 +25,8 @@ import path from 'path';
 const path = require('path'); // CommonJS
 import path from 'path';  //// ES modules
 ```
-##Code snippets for path modules
-'''js
+## Code snippets for path modules
+```js
 //1.path.basename()
 
 const filePath = '/users/sudarshan/docs/file.txt';
@@ -44,13 +44,13 @@ const folder = '/users/sudarshan';
 const file = 'file.txt';
 console.log(path.join(folder, 'docs', file)); 
 // Output: /users/sudarshan/docs/file.txt
-'''
+```
 
-##path.resolve() and path.normalize()
-**path.resolve()**
+## path.resolve() and path.normalize()
+**path.resolve()**  
 - Resolves a sequence of path segments into an absolute path.
 - Takes the current working directory into account.
-**path.normalize()**
+**path.normalize()**  
 - Normalizes a path by resolving .. and . segments.
 ```js
 console.log(path.resolve('docs', 'file.txt')); 
