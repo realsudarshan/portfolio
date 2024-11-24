@@ -5,7 +5,7 @@ export default async function sitemap() {
   let allPosts = await getBlogPosts();
 
   const posts = sortPosts(allPosts).map(({ slug, metadata }) => ({
-    url: `https://mwtech.vercel.app/blog/${slug}`,
+    url: `https://sudarshandhakal.com.np/blog/${slug}`,
     lastModified: metadata.date
   }));
 
