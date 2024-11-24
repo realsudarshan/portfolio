@@ -10,7 +10,7 @@ export default async function sitemap() {
   }));
 
   const routes = ['', 'blog', 'contact'].map((route) => ({
-    url: `https://mwtech.vercel.app/${route}`,
+    url: `https://sudarshandhakal.com.np/${route}`,
     lastModified: new Date().toISOString().split('T')[0]
   }));
 
