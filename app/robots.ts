@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/'
     },
-    host: 'https://mwtech.vercel.app',
-    sitemap: 'https://mwtech.vercel.app/sitemap.xml'
+    host: 'https://sudarshandhakal.com.np',
+    sitemap: 'https://sudarshandhakal.com.np/sitemap.xml'
   };
 }
