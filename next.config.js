@@ -1,3 +1,4 @@
+// next.config.mjs
 const nextConfig = {
   headers() {
     return [
@@ -51,4 +52,6 @@ const securityHeaders = [
   }
 ];
 
-module.exports = nextConfig;
+
+
+export default nextConfig;

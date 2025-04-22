@@ -1,8 +1,12 @@
 {
+  "name": "your-project-name",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -28,5 +32,10 @@
     "sass": "^1.77.1",
     "typescript": "5.3.3",
     "use-sound": "^4.0.1"
+  },
+  "devDependencies": {
+    "eslint": "8.56.0",
+    "eslint-config-next": "13.4.12",
+    "typescript": "^5.3.3"
   }
 }
