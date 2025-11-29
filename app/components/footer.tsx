@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Rss } from '@/components/icons';
 import { Github } from '@/components/icons';
+import { NewsletterForm } from '@/components/newsletter-form';
 
 export function Footer() {
   return (
@@ -43,7 +44,17 @@ export function Footer() {
                 </a>
               </p>
             </li>
+            <li>
+              <strong>newsletter</strong>
+              <p className="fs-200">Get notified of new posts</p>
+            </li>
           </ul>
+          <div className="margin-block-start-400" style={{ maxWidth: '400px' }}>
+            <NewsletterForm
+              placeholder="your.email@example.com"
+              buttonText="Subscribe"
+            />
+          </div>
           <div className="[ margin-block-start-100 ] [ flex-row ]">
             <a
               target="_blank"

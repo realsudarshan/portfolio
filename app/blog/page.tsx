@@ -10,12 +10,17 @@ export const metadata: Metadata = {
     'My blog is a site where I share ideas, tips, and other random and interesting things about web development.'
 };
 
+import { NewsletterInline } from '@/components/newsletter-inline';
+
 export default async function BlogPage() {
   let allPosts = await getBlogPosts();
 
   return (
     <article className="[ wrapper-sm ] [ margin-block-start-700 margin-block-end-800 ]">
       <h1>Blog</h1>
+      <div className="margin-block-start-400 margin-block-end-700">
+        <NewsletterInline />
+      </div>
       <div className="margin-block-start-700">
         <div>
           <ul className="[ post-list ] [ flow ]" role="list">

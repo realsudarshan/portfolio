@@ -1,4 +1,5 @@
-{"name": "your-project-name",
+{
+  "name": "your-project-name",
   "version": "1.0.0",
   "type": "module",
   "private": true,
@@ -10,6 +11,7 @@
   "dependencies": {
     "@apollo/client": "^3.10.3",
     "@emailjs/browser": "^3.12.1",
+    "@react-email/components": "^1.0.1",
     "@types/node": "^20.12.11",
     "@types/react": "18.2.45",
     "@types/rss": "^0.0.32",
@@ -21,14 +23,18 @@
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-email": "^5.0.5",
     "react-icons": "^5.3.0",
     "rehype-autolink-headings": "7.1.0",
     "rehype-code-titles": "1.2.0",
     "rehype-prism-plus": "^1.6.3",
     "rehype-slug": "6.0.0",
+    "resend": "^6.5.2",
     "rss": "^1.2.2",
     "sass": "^1.77.1",
     "typescript": "5.3.3",
-    "use-sound": "^4.0.1"
-  }
+    "use-sound": "^4.0.1",
+    "zod": "^4.1.13"
+  },
+  "packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f"
 }

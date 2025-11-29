@@ -37,7 +37,7 @@ export default async function Page() {
           <div className="padding-block-start-200">
             <ol className="auto-grid" role="list">
               {sortPosts(allPosts)
-                .slice(0, 4)
+                .slice(0, 3)
                 .map(({ slug, metadata }) => {
                   return (
                     <li className="card" key={slug}>
