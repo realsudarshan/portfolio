@@ -35,6 +35,11 @@ export async function addSubscriber(email: string) {
 }
 
 export async function removeSubscriber(email: string) {
+  if (!resend) {
+    console.error('RESEND_API_KEY is not defined');
+    return { success: false, error: 'Server configuration error' };
+  }
+
   try {
     const response = await resend.contacts.remove({
       email,
