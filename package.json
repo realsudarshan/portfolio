@@ -16,6 +16,7 @@
     "@types/react": "18.2.45",
     "@types/rss": "^0.0.32",
     "@vercel/analytics": "^1.2.2",
+    "dotenv": "^17.2.3",
     "graphql": "^16.8.1",
     "gray-matter": "^4.0.3",
     "next": "latest",

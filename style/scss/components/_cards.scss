@@ -2,40 +2,102 @@
 @use '../abstracts/tokens/tokens' as *;
 
 .projects {
-  --auto-grid-min-size: min(54vw, 24rem);
+  --auto-grid-min-size: min(100%, 20rem);
+  --auto-grid-gap: var(--space-500);
   --region-padding: var(--space-700);
 
+  @include breakpoint('medium') {
+    --auto-grid-min-size: min(45%, 22rem);
+  }
+
+  @include breakpoint('large') {
+    --auto-grid-min-size: min(30%, 24rem);
+  }
+
+  .auto-grid {
+    align-items: stretch;
+  }
+
   .card {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    padding: var(--space-200);
+    padding: var(--space-400);
     max-width: 100%;
     width: 100%;
+    height: 100%;
+    min-height: 280px;
     border-radius: $border-radius-0-5;
-    border: 1px solid $color-border-default;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+
+    @media (prefers-color-scheme: light) {
+      border-color: rgba(0, 0, 0, 0.15);
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    &:hover {
+      border-color: $color-border-primary-600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+
+      @media (prefers-color-scheme: light) {
+        background: rgba(0, 0, 0, 0.05);
+      }
+    }
 
     p {
-      margin-block-end: var(--space-300);
+      margin-block-end: auto;
+      line-height: 1.5;
+      flex: 1 1 auto;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      line-clamp: 4;
     }
 
     &-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-block-end: var(--space-300);
+      flex-shrink: 0;
+
+      a {
+        font-weight: $font-weight-bold;
+        font-size: $font-size-400;
+      }
 
       &__star {
         display: flex;
         align-items: center;
-        gap: 0.2em;
+        gap: 0.3em;
         text-decoration: 0;
+        font-size: $font-size-300;
+        color: $color-text-muted;
 
         &::after {
           all: unset;
+        }
+
+        &:hover {
+          color: $color-text-body;
         }
       }
     }
 
     &-foot {
+      margin-block-start: auto;
+      padding-block-start: var(--space-300);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+
+      @media (prefers-color-scheme: light) {
+        border-top-color: rgba(0, 0, 0, 0.1);
+      }
+
       &__language {
         display: flex;
         align-items: center;
@@ -51,7 +113,10 @@
 
       &__topics {
         display: flex;
-        gap: 0.2em;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.4em;
+        margin-block-start: var(--space-200);
       }
     }
   }
@@ -63,17 +128,13 @@
   --region-padding: var(--space-700);
 
   .card {
-    --gradient-bottom: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.15) 50%,
-      rgba(0, 0, 0, 0.4) 100%
-    );
-    --gradient-full: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.4) 100%
-    );
+    --gradient-bottom: linear-gradient(0deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.15) 50%,
+        rgba(0, 0, 0, 0.4) 100%);
+    --gradient-full: linear-gradient(0deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.4) 100%);
   }
 
   .card {

@@ -14,12 +14,20 @@ export async function addSubscriber(email: string) {
   }
 
   try {
+    console.log('Adding subscriber:', email);
     const response = await resend.contacts.create({
       email,
       audienceId: NEWSLETTER_AUDIENCE_ID,
       unsubscribed: false
     });
-    return { success: true, data: response };
+    console.log('Subscriber added:', response);
+
+    if (response.error) {
+      console.error('Error adding subscriber:', response.error);
+      return { success: false, error: response.error.message };
+    }
+
+    return { success: true, data: response.data };
   } catch (error: any) {
     console.error('Error adding subscriber:', error);
     return { success: false, error: error.message };
@@ -32,7 +40,13 @@ export async function removeSubscriber(email: string) {
       email,
       audienceId: NEWSLETTER_AUDIENCE_ID
     });
-    return { success: true, data: response };
+
+    if (response.error) {
+      console.error('Error removing subscriber:', response.error);
+      return { success: false, error: response.error.message };
+    }
+
+    return { success: true, data: response.data };
   } catch (error: any) {
     console.error('Error removing subscriber:', error);
     return { success: false, error: error.message };
@@ -70,7 +84,13 @@ export async function sendWelcomeEmail(email: string) {
         </div>
       `
     });
-    return { success: true, data: response };
+
+    if (response.error) {
+      console.error('Error sending welcome email:', response.error);
+      return { success: false, error: response.error.message };
+    }
+
+    return { success: true, data: response.data };
   } catch (error: any) {
     console.error('Error sending welcome email:', error);
     return { success: false, error: error.message };
@@ -81,7 +101,8 @@ export async function sendNewPostEmail(
   email: string,
   postTitle: string,
   postDescription: string,
-  postUrl: string
+  postUrl: string,
+  unsubscribeUrl: string
 ) {
   if (!resend) {
     console.error('RESEND_API_KEY is not defined');
@@ -106,12 +127,18 @@ export async function sendNewPostEmail(
           <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0;">
           <p style="color: #999; font-size: 12px;">
             You're receiving this because you subscribed to my newsletter.<br>
-            <a href="{{unsubscribe_url}}" style="color: #999;">Unsubscribe</a>
+            <a href="${unsubscribeUrl}" style="color: #999;">Unsubscribe</a>
           </p>
         </div>
       `
     });
-    return { success: true, data: response };
+
+    if (response.error) {
+      console.error('Error sending new post email:', response.error);
+      return { success: false, error: response.error.message };
+    }
+
+    return { success: true, data: response.data };
   } catch (error: any) {
     console.error('Error sending new post email:', error);
     return { success: false, error: error.message };

@@ -49,9 +49,16 @@ export async function POST(request: NextRequest) {
         // Send email to all subscribers
         const emailPromises = contacts.data.data
             .filter(contact => !contact.unsubscribed)
-            .map(contact =>
-                sendNewPostEmail(contact.email, postTitle, postDescription, postUrl)
-            );
+            .map(contact => {
+                const unsubscribeUrl = `${baseUrl}/newsletter/unsubscribe?id=${contact.id}`;
+                return sendNewPostEmail(
+                    contact.email,
+                    postTitle,
+                    postDescription,
+                    postUrl,
+                    unsubscribeUrl
+                );
+            });
 
         const results = await Promise.allSettled(emailPromises);
 
