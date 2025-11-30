@@ -1,7 +1,7 @@
 ---
 title: From Idea to Deployment - Making of Sero-Fero
 description: A comprehensive journey from concept to production - Building a modern social media platform with React and Vite, self-hosted Appwrite on GCP, and overcoming real-world challenges.
-banner: /images/fromideatodeploymentsero-fero/frontend.png
+banner: /images/fromideatodeploymentsero-fero/banner.jpg
 date: 2025-11-30
 tags:
   - react
@@ -108,20 +108,7 @@ Users → Firebase Hosting (React + Vite SPA)
              └─ 15+ worker containers
 ```
 
----
-
-## Why Self-Host? The Case for Infrastructure Control
-
-Instead of using managed services like Firebase or Supabase, I chose to self-host Appwrite on Google Cloud Platform for several reasons:
-
-         ├─ Cloudflared Service (port 80)
-         └─ Docker Compose
-             ├─ Traefik (reverse proxy)
-             ├─ Appwrite (API + auth + storage)
-             ├─ MariaDB (database)
-             ├─ Redis (cache/queues)
-             └─ 15+ worker containers
-```
+![Sero-Fero Architecture](/images/fromideatodeploymentsero-fero/artitecture.png)
 
 ---
 
@@ -129,7 +116,7 @@ Instead of using managed services like Firebase or Supabase, I chose to self-hos
 
 Instead of using managed services like Firebase or Supabase, I chose to self-host Appwrite on Google Cloud Platform for several reasons:
 
-1. **Cost Optimization**: ~$40/month vs $99+ for managed BaaS at scale (Thanks to Google Cloud Platform free trial)
+1. **Cost Optimization**: Significant savings vs managed BaaS at scale (Thanks to Google Cloud Platform free trial)
 2. **Full Infrastructure Control**: Complete access to configuration, logs, and data
 3. **Learning Experience**: Deep understanding of cloud deployment, Docker, networking, and backend management
 4. **Data Sovereignty**: Control over where data lives and how it's backed up
@@ -147,7 +134,6 @@ Instead of using managed services like Firebase or Supabase, I chose to self-hos
 
 - Built a simple REST API using Express, MongoDB, JWT auth, and Multer for uploads.
 - Challenges: handling auth and uploads manually was **time-consuming**, and implementing validation and basic security checks added extra work.
-- Time spent: ~2 weeks setting up core backend functionality.
 
 ---
 
@@ -156,7 +142,6 @@ Instead of using managed services like Firebase or Supabase, I chose to self-hos
 - Migrated to Firebase for **instant auth, Firestore, and Cloud Storage**—avoided reinventing the wheel.
 - Minor challenges: adapting frontend to Firebase SDK and updating data structure for NoSQL.
 - Git required extra care with branches; small merge conflicts occurred.
-- Time spent: ~1 week.
 
 ---
 
@@ -165,7 +150,6 @@ Instead of using managed services like Firebase or Supabase, I chose to self-hos
 - Switched to Appwrite for **more control, self-hosting, and cost predictability**.
 - Migration challenges: adapting SDK patterns, rewriting auth flow, and updating storage usage.
 - Docker setup required troubleshooting environment variables and container connections.
-- Time spent: ~2–3 weeks including debugging.
 
 **Note**: While the app is still small and v1, these migrations were valuable learning experiences and helped set a cleaner foundation for future growth.
 
@@ -224,8 +208,10 @@ Browser (HTTPS) → GCP VM (HTTP only, no certificate)
 gcloud compute addresses create appwrite-static-ip --region=us-central1
 gcloud compute instances add-access-config <instance-name> --access-config-name="External NAT" --address=<static-ip>
 ```
+
 **GCP Firewall Configuration**:
-```bash Allow HTTP traffic (port 80) for Cloudflare Tunnel
+```bash
+# Allow HTTP traffic (port 80) for Cloudflare Tunnel
 gcloud compute firewall-rules create allow-http \
   --allow tcp:80 \
   --source-ranges 0.0.0.0/0 \
@@ -237,11 +223,10 @@ gcloud compute firewall-rules create allow-https \
   --source-ranges 0.0.0.0/0 \
   --description "Allow HTTPS for Let's Encrypt"
 ```
-Important: With Cloudflare Tunnel, you only need port 80 open. 
-The tunnel handles encryption, so you don't need to expose port 443.
- Check firewall rules in GCP Console → VPC Network → Firewall.
 
-**Cost**: Static IP is free while assigned to running instance (~$3/month if unassigned)
+Important: With Cloudflare Tunnel, you only need port 80 open. The tunnel handles encryption, so you don't need to expose port 443. Check firewall rules in GCP Console → VPC Network → Firewall.
+
+**Cost**: Static IP is free while assigned to running instance
 
 ---
 
@@ -398,7 +383,7 @@ services:
       # ... all other variables
 ```
 
-**The pain**: I spent hours changing `.env` values and restarting containers, wondering why nothing updated. Finally realized docker-compose.yml had hardcoded values that override everything.
+**The pain**: Changing `.env` values and restarting containers, wondering why nothing updated. Finally realized docker-compose.yml had hardcoded values that override everything.
 
 **Verify configuration**:
 ```bash
@@ -423,7 +408,7 @@ Without this, all cross-origin requests are blocked.
 
 ### The Docker Container Restart Hell
 
-Throughout this process, I restarted containers hundreds of times:
+Throughout this process, I restarted containers numerous times:
 
 ```bash
 # Restart everything
@@ -509,7 +494,7 @@ const avatarUrl = avatars.getInitials(user.name); // Fresh https:// URL!
 
 4. **.env file** (IGNORED unless referenced!)
 
-**Real-world impact**: Changed `.env` file 10+ times, restarted containers, nothing happened. Why? docker-compose.yml had hardcoded values.
+**Real-world impact**: Changed `.env` file multiple times, restarted containers, nothing happened. Why? docker-compose.yml had hardcoded values.
 
 **Solution**: Always use references in docker-compose.yml, never hardcode:
 
@@ -543,7 +528,7 @@ docker exec -it appwrite printenv | grep APP_
 - Infrastructure remains stable
 - Easier monitoring and debugging
 
-**Cost**: Free while VM is running, ~$3/month if IP is reserved but unassigned.
+**Cost**: Free while VM is running
 
 ---
 
@@ -618,11 +603,13 @@ docker compose build --no-cache
 docker compose up -d
 ```
 
-When fixes don't appear, blame cache first. I wasted hours on "bugs" that were just cached responses.
+When fixes don't appear, blame cache first. Debugging can be difficult when issues are just cached responses.
 
 ---
 
 ## Frontend Development & Key Features
+
+![Sero-Fero Frontend](/images/fromideatodeploymentsero-fero/frontend.png)
 
 ### Database Schema
 
@@ -803,7 +790,7 @@ cd appwrite && docker compose up -d
 
 **Decision**: Appwrite over Node.js/Express.
 
-**Why**: Authentication, database, storage pre-built. Saved weeks. Trade-off: Less control, but worth it.
+**Why**: Authentication, database, storage pre-built. Saved significant development time. Trade-off: Less control, but worth it.
 
 ---
 
@@ -855,7 +842,7 @@ const { data: posts, isLoading } = useQuery({
 
 ### 5. Static IP Investment
 
-**Decision**: Pay for static IP (~$40/month for VM + static IP).
+**Decision**: Use static IP for production infrastructure.
 
 **Why**: 
 - DNS stability
@@ -869,7 +856,7 @@ const { data: posts, isLoading } = useQuery({
 
 ### 1. Infrastructure First, Features Second
 
-Configure domains, SSL, static IP, and environment variables BEFORE creating production data. Fixing after is 10x harder.
+Configure domains, SSL, static IP, and environment variables BEFORE creating production data. Fixing after is significantly harder.
 
 ---
 
@@ -894,7 +881,7 @@ Managed hosting gives free SSL. Self-hosting requires either Certbot (manual) or
 
 ### 4. Static IP is Essential
 
-Without static IP, everything breaks on VM restart. Worth the extra $3-5/month.
+Without static IP, everything breaks on VM restart. Worth the investment.
 
 ---
 
@@ -906,7 +893,7 @@ Keep migration branches short-lived. Merge frequently. Document SDK changes. Exp
 
 ### 6. Container Restarts are Normal
 
-Restarting containers 100+ times during setup is normal. Always check logs first: `docker compose logs -f`
+Restarting containers during setup is normal. Always check logs first: `docker compose logs -f`
 
 ---
 
@@ -932,7 +919,7 @@ For SPAs, Vite beats Next.js in development speed and simplicity. Choose the rig
 
 Skills needed: Linux, Docker, networking, DNS, SSL/TLS, monitoring, backups, security.
 
-Time investment: ~3 days setup + ongoing maintenance.
+Time investment: Initial setup plus ongoing maintenance.
 
 Only self-host if you want to learn or have specific requirements.
 
