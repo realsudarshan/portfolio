@@ -60,7 +60,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mwtech.vercel.app'),
+  metadataBase: new URL('https://sudarshandhakal.com.np'),
   title: {
     default: 'Sudarshan Dhakal',
     template: '%s - Sudarshan Dhakal'
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     title: 'Sudarshan Dhakal',
     description:
       'Sudarshan Dhakal, a seasoned freelance web developer based in Nepal.',
-    url: 'https://super-duper-umbrella-xjwjvg9xx65hvqq9-3000.app.github.dev/', //changelater
+    url: 'https://sudarshandhakal.com.np',
     siteName: 'Sudarshan Dhakal',
     locale: 'en_US',
     type: 'website'

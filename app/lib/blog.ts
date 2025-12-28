@@ -1,11 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
+import { unstable_cache } from 'next/cache';
 import path from 'path';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeCodeTitles from 'rehype-code-titles';
-import rehypePrism from 'rehype-prism-plus';
-import rehypeSlug from 'rehype-slug';
 
 type Metadata = {
   title: string;
@@ -15,55 +11,37 @@ type Metadata = {
   tags: string[];
 };
 
-export type Blog = {
+export type BlogPost = {
   metadata: Metadata;
   slug: string;
   content: string;
-}[];
+};
 
-export async function parseFrontmatter(source: string) {
+export type Blog = BlogPost[];
+
+function parseFrontmatter(source: string) {
   const { data: frontmatter, content } = matter(source);
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      rehypePlugins: [
-        rehypeSlug,
-        rehypeCodeTitles,
-        rehypePrism as any,
-        [
-          rehypeAutolinkHeadings,
-          {
-            behavior: 'wrap',
-            properties: {
-              className: ['anchor']
-            }
-          }
-        ]
-      ],
-      format: 'mdx'
-    }
-  });
-
   return {
     metadata: frontmatter as Metadata,
-    content: mdxSource
+    content
   };
 }
 
-function getMDXFiles(dir) {
+function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
 }
 
-async function readMDXFile(filePath) {
-  let rawContent = fs.readFileSync(filePath, 'utf-8');
-  return await parseFrontmatter(rawContent);
+function readMDXFile(filePath: string) {
+  const rawContent = fs.readFileSync(filePath, 'utf-8');
+  return parseFrontmatter(rawContent);
 }
 
-async function getMDXData(dir) {
-  let mdxFiles = getMDXFiles(dir);
+function getMDXData(dir: string): BlogPost[] {
+  const mdxFiles = getMDXFiles(dir);
 
-  const dataPromises = mdxFiles.map(async (file) => {
-    let { metadata, content } = await readMDXFile(path.join(dir, file));
-    let slug = path.basename(file, path.extname(file));
+  return mdxFiles.map((file) => {
+    const { metadata, content } = readMDXFile(path.join(dir, file));
+    const slug = path.basename(file, path.extname(file));
 
     return {
       metadata,
@@ -71,10 +49,13 @@ async function getMDXData(dir) {
       content
     };
   });
-
-  return await Promise.all(dataPromises);
 }
 
-export async function getBlogPosts() {
-  return await getMDXData(path.join(process.cwd(), 'content'));
-}
+// Cache blog posts to avoid re-parsing on every request
+export const getBlogPosts = unstable_cache(
+  async () => {
+    return getMDXData(path.join(process.cwd(), 'content'));
+  },
+  ['blog-posts'],
+  { revalidate: 3600 } // Revalidate every hour
+);
