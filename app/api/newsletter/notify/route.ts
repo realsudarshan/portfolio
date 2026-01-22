@@ -1,4 +1,4 @@
-import { resend, NEWSLETTER_AUDIENCE_ID, sendNewPostEmail } from '@/lib/resend';
+import { resend, NEWSLETTER_AUDIENCE_ID, sendNewPostEmail } from 'lib/resend';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {

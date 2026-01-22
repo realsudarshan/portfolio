@@ -1,5 +1,5 @@
-import { addSubscriber, sendWelcomeEmail } from '@/lib/resend';
-import { newsletterSchema } from '@/lib/validate-newsletter';
+import { addSubscriber, sendWelcomeEmail } from 'lib/resend';
+import { newsletterSchema } from 'lib/validate-newsletter';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {

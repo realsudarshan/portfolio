@@ -1,5 +1,5 @@
-import type { Metadata } from 'next/types';
-import { Form } from './form';
+import type { Metadata } from 'next';
+import { ContactForm } from './form';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -9,19 +9,28 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
-      <section className="[ wrapper ] [ margin-block-start-700 margin-block-end-800 ]">
-        <div className="[ headline ] [ flow ]" data-headline-style="wide">
-          <h1>{String(metadata.title)}</h1>
-          <p>{metadata.description}</p>
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="container max-w-4xl mx-auto px-6 pt-20 pb-16">
+        <div className="space-y-4">
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+            {String(metadata.title)}
+          </h1>
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+            {metadata.description}
+          </p>
         </div>
       </section>
-      <section className="[ region ] [ bg-inverse ]">
-        <div className="wrapper">
-          <h1 className="visually-hidden">for contact with me</h1>
-          <Form />
+
+      {/* Form Section */}
+      <section className="bg-secondary/30 py-16 md:py-24">
+        <div className="container max-w-4xl mx-auto px-6">
+          <h2 className="sr-only">Contact Form</h2>
+          <div className="bg-background p-8 md:p-12 rounded-xl border shadow-sm">
+            <ContactForm />
+          </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }

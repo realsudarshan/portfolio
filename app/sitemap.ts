@@ -1,5 +1,5 @@
-import { getBlogPosts } from '@/lib/blog';
-import { sortPosts } from '@/lib/sort';
+import { getBlogPosts } from 'lib/blog';
+import { sortPosts } from 'lib/sort';
 
 export default async function sitemap() {
   let allPosts = await getBlogPosts();

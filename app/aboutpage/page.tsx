@@ -2,7 +2,7 @@
 import React from 'react';
 import './About.css';
 
-import AboutBox from '../components/aboutbox';
+import AboutBox from '../../components/aboutbox';
 
 const About = () => {
     const showResume = async () => {

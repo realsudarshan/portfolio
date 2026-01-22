@@ -1,5 +1,5 @@
-import { getBlogPosts } from '@/lib/blog';
-import { sortPosts } from '@/lib/sort';
+import { getBlogPosts } from 'lib/blog';
+import { sortPosts } from 'lib/sort';
 import RSS from 'rss';
 
 export const dynamic = 'force-dynamic';
