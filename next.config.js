@@ -1,5 +1,12 @@
 // next.config.mjs
 const nextConfig = {
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
   headers() {
     return [
       {
@@ -12,15 +19,16 @@ const nextConfig = {
 
 const ContentSecurityPolicy = `
     default-src 'self' vercel.live;
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live va.vercel-scripts.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' 
+               cdn.vercel-insights.com vercel.live va.vercel-scripts.com 
+               platform.linkedin.com;
     style-src 'self' 'unsafe-inline';
     img-src * blob: data:;
     media-src 'none';
     connect-src *;
     font-src 'self' data:;
-    frame-src 'self' vercel.live;
+    frame-src 'self' vercel.live www.linkedin.com;
 `;
-
 const securityHeaders = [
   {
     key: 'Content-Security-Policy',

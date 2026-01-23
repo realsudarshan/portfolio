@@ -18,7 +18,7 @@ export interface ProjectType {
   features: { icon: string; label: string }[];
   blogs: { title: string; url: string }[];
   build: Build
-  demoUrl: string
+  demoUrl?: string
   journey: Journey[]
   gallery: string[]
   gradient?: string
@@ -66,7 +66,7 @@ export const projects: ProjectType[] = [
       { "icon": "cloud-upload", "label": "Over-The-Air Update Pipeline - Instant JavaScript bundle updates via EAS without Play Store review delays. GitHub Actions CI/CD triggers EAS Build on push to main, AAB to internal testing track, Vercel auto-deploy for web. eas update --branch production fixes critical bugs in hours vs days. Native code changes require full build (only 10% of bugs)." }
     ],
     "blogs": [{ "title": "Building Dotly: A Technical Deep Dive", "url": "https://www.sudarshandhakal.com.np/blog/making-of-dotly" }],
-    "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7419798476990922752?collapsed=1",
+    "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7419798476990922752?compact=1",
     "journey": [
       {
         "milestone": "Foundational Architecture & Type Safety",
@@ -152,18 +152,12 @@ export const projects: ProjectType[] = [
       }
     ],
     "gallery": [
-      "Home screen with streak visualization showing fire icons and current 15-day streak",
-      "Entries feed with FlashList rendering hundreds of journal cards at 60fps with category color coding",
-      "AI chat interface with streaming responses and tool use visualization showing journal search",
-      "Auto-categorization system silently organizing entry into 'Work Stress' category",
-      "Dark mode interface with therapeutic blue color scale and smooth theme transitions",
-      "Milestone celebration with confetti animation for achieving 30-day streak badge",
-      "Floating '+' button positioned above tab bar with haptic feedback demonstration",
-      "Profile screen showing Pro subscription status and notification preferences",
-      "Push notification 'Don't break your streak!' appearing at 8 PM local time",
-      "Real-time sync demonstration: edit on web instantly updating on mobile device",
-      "Stripe checkout flow via deep-link from native app to web browser",
-      "Entry detail view with mood indicator, timestamp, and quick action buttons"
+      "https://media.licdn.com/dms/image/v2/D5622AQFIMub8gaSPaQ/feedshare-shrink_1280/B56ZvmG4jyHQAc-/0/1769092123076?e=1770854400&v=beta&t=cb54DgQDsxBXK1SylT_NdAR5Gwyg4r5kVe3Jv2Y3jBc",
+      "https://media.licdn.com/dms/image/v2/D5622AQGARoS2QZSbLQ/feedshare-shrink_1280/B56ZvmG4JFIQAc-/0/1769092121357?e=1770854400&v=beta&t=yMtCnolBW7ZIuMAcDPiLk9ydjmwVphVvSen3VI-N-os",
+      "https://media.licdn.com/dms/image/v2/D5622AQGpxgB8aeoJDA/feedshare-shrink_2048_1536/B56ZvmG4JhIsAk-/0/1769092121399?e=1770854400&v=beta&t=EzHAGW9fdxDosg9KsUEHTFxyOInBMy0IUZDaCLiTGMs",
+      "https://media.licdn.com/dms/image/v2/D5622AQG8b7pOVS9l5Q/feedshare-shrink_2048_1536/B56ZvmG4PnHAA0-/0/1769092121861?e=1770854400&v=beta&t=r7HdTNX2GBpyTHZzhhn-5m06BXPjw8b6pY7_TeVwseQ",
+      "https://media.licdn.com/dms/image/v2/D5622AQG2JK5-6PKZJg/feedshare-shrink_2048_1536/B56ZvmG4L.JUAk-/0/1769092121559?e=1770854400&v=beta&t=nj8TVn0bLcLI5qbEK-7q-y_qEUOHxaNGmykbLNbK8xw",
+      "https://media.licdn.com/dms/image/v2/D5622AQFi7xb51lDLIA/feedshare-shrink_2048_1536/B56ZvmG4YxIUAk-/0/1769092122415?e=1770854400&v=beta&t=G0ounlLMGzb4P6Y7gKddDm-MoZ8lMJRj0_mVFAW5s44",
     ]
   },
   {
@@ -172,7 +166,7 @@ export const projects: ProjectType[] = [
     "tagline": "Ride Hailing App",
     "gradient": "from-green-400 via-blue-500 to-purple-600",
     "summary": "Sarathi is a production-ready ride-hailing platform built entirely with the Expo ecosystem that connects riders with drivers for on-demand transportation. The app solves the complex challenge of coordinating real-time GPS data, managing location-based state across multiple screens, and integrating diverse third-party APIs while maintaining type safety and developer velocity. Built with a unified monorepo approach where frontend and backend live in one codebase, Sarathi demonstrates how modern tools can enable a solo developer to build feature-rich, scalable applications that rival industry leaders—all developed over 6 months with seamless cross-platform support for iOS and Android.",
-    "build": { "Git": null, "WebDemo": null, "AndroidDemo": null },
+    "build": { "Git": "https://github.com/realsudarshan/sarathi", "WebDemo": null, "AndroidDemo": "https://expo.dev/accounts/sudarshandhakal/projects/sarathi/builds/4a6063aa-46d4-49b1-adf5-2f62b5ad8421" },
     "techstack": [
       "React Native 0.76 with Expo 54 - Foundation providing native capabilities with JavaScript and zero native configuration",
       "Expo Router - File-based navigation system inspired by Next.js for intuitive mobile app structure",
@@ -205,9 +199,17 @@ export const projects: ProjectType[] = [
       { "icon": "smartphone", "label": "Cross-Platform Native Experience - Seamless iOS and Android support with platform-specific optimizations. Expo's managed workflow provides pre-configured native modules, file-based routing eliminates boilerplate, new architecture included by default in Expo 54. Single codebase deploying to both platforms without maintaining separate repositories." },
       { "icon": "layers", "label": "Unified Monorepo Architecture - Revolutionary approach where mobile screens (app/(root)/ and app/(auth)/), API endpoints (app/(api)/), shared types (types/type.d.ts), state management (store/), and utilities (lib/) all live in one Expo project. Benefits: type safety across frontend and backend, simplified deployment (one codebase, one pipeline), faster development (no context switching), zero CORS issues during development." }
     ],
-    "blogs": [{ "title": "Building Sarathi: A Technical Deep Dive", "url": "https://sudarshandhakal.com/blog/building-sarathi-technical-deep-dive" }],
-    "demoUrl": "https://expo.dev/artifacts/eas/...",
-    "gallery": ["a", "b"],
+    "blogs": [{ "title": "Building Sarathi: A Technical Deep Dive", "url": "https://www.sudarshandhakal.com.np/blog/building-of-sarathi" }],
+    "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7415709534981136384?compact=1",
+    "gallery": [
+  "https://sudarshandhakal.com.np/images/building-of-sarathi/architecture-diagram.png",
+  "https://sudarshandhakal.com.np/images/building-of-sarathi/build-sucessful.png",
+  "https://sudarshandhakal.com.np/images/building-of-sarathi/githistory.png",
+  "https://sudarshandhakal.com.np/images/building-of-sarathi/hero-img.png",
+  "https://sudarshandhakal.com.np/images/building-of-sarathi/map-ui.png",
+  "https://sudarshandhakal.com.np/images/building-of-sarathi/planning-flow.png",
+  "https://sudarshandhakal.com.np/images/building-of-sarathi/tech-stack.png"
+],
     "journey": [
       {
         "milestone": "Project Foundation & Technology Selection",
@@ -354,7 +356,7 @@ export const projects: ProjectType[] = [
         "url": "https://sudarshandhakal.com.np/blog/building-an-ai-powered-learning-management-system-in-7-days"
       }
     ],
-    "demoUrl": "https://lms-with-ai.vercel.app",
+    "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7411757470051856384?compact=1",
     "journey": [
       {
         "milestone": "Day 1 - Foundation & Infrastructure",
@@ -451,20 +453,22 @@ export const projects: ProjectType[] = [
       }
     ],
     "gallery": [
-      "Landing page with hero section, gradient effects, and pricing tiers",
-      "User dashboard showing subscription status, in-progress courses, and recommendations",
-      "Course detail page with expandable modules and lesson lists",
-      "Secure video player with Mux integration, captions, and storyboard scrubbing",
-      "AI tutor floating widget with streaming chat interface",
-      "Pricing comparison table highlighting tier features and benefits",
-      "Sanity CMS admin panel showing content structure and real-time collaboration",
-      "Progress tracking interface with completion indicators and checkmarks",
-      "Category browsing with course cards and tier badges",
-      "Mobile-responsive layout demonstrating cross-device compatibility",
-      "AI tutor providing contextual answers with direct lesson links",
-      "System architecture diagram showing data flow between services"
+      
+  "https://sudarshandhakal.com.np/images/making-of-gyanwalla-lms/Content%20structure%20in%20GyanWalla%20(1).png",
+  "https://www.sudarshandhakal.com.np/images/making-of-gyanwalla-lms/aitutoringyanwalla.png",
+  "https://sudarshandhakal.com.np/images/making-of-gyanwalla-lms/flowdiagram%20(1).png",
+  "https://sudarshandhakal.com.np/images/making-of-gyanwalla-lms/systemdesign.png",
+      "https://media.licdn.com/dms/image/v2/D5622AQHniC3rSEckhA/feedshare-shrink_1280/B56Ztzy7KAIcAs-/0/1767174289629?e=1770854400&v=beta&t=8C4g3cSi1PqyoZkNRsmAHPe72klfr57uLDuy00jKMn8",
+      "https://media.licdn.com/dms/image/v2/D5622AQFTHiqIR6QueA/feedshare-shrink_1280/B56ZtB_0snHIAw-/0/1766338809350?e=1770854400&v=beta&t=wefB6gisjKvuZQvxrRnjUTNgW3_ZzkWHx_yhhLN8bO8",
+      "https://media.licdn.com/dms/image/v2/D5622AQGsHht0N47axQ/feedshare-shrink_1280/B56ZtB_0srHIAw-/0/1766338809367?e=1770854400&v=beta&t=Zbned-sv58NPTsNyFLBbUFhxTwFEhDBOFZs6Cp2pjuQ",
+      "https://media.licdn.com/dms/image/v2/D5622AQFZChUqOUBskA/feedshare-shrink_2048_1536/B56ZtB_0s.GsA4-/0/1766338809663?e=1770854400&v=beta&t=OiTkRJJkLhnnDtFHY-jVGdQ8niejtWhABp5p-BStxR4",
+      "https://media.licdn.com/dms/image/v2/D5622AQHdm8qBluXtUA/feedshare-shrink_2048_1536/B56Zs8_1snJUA0-/0/1766254929137?e=1770854400&v=beta&t=LG-mjsyD0q8-6pUVSq4YCOifggiJV3PkaGcxjfrZnpQ",
+      "https://media.licdn.com/dms/image/v2/D5622AQGslDjCg8fDQQ/feedshare-shrink_2048_1536/B56Zs8_1soGgAw-/0/1766254928274?e=1770854400&v=beta&t=4nEpIOFp1VWaxaNGzSqktIIbz2h38o2k9CivoUMIEPw",
+      "https://media.licdn.com/dms/image/v2/D5622AQGdqkVwT9ghfw/feedshare-shrink_2048_1536/B56Zsn2hVVG4A0-/0/1765900163653?e=1770854400&v=beta&t=FbLRvSfeXTvescCf653MdAjyjrEQw60nhhgXKdOFHoU",
+      "https://media.licdn.com/dms/image/v2/D5622AQHy6bVU2FIjYA/feedshare-shrink_2048_1536/B56Zsn2hTvGkAw-/0/1765900164008?e=1770854400&v=beta&t=E_tymVkWXyPQNQEG2WqAPl9Mhsz3GoW3PgpMBElcPBc",
+      "https://media.licdn.com/dms/image/v2/D5622AQH8mioqtiX0lQ/feedshare-shrink_2048_1536/B56Zs30XO5J4Aw-/0/1766168033245?e=1770854400&v=beta&t=T1h3Y1eRPvw5XSTA2_yZb6NnceZLt6bJnvbEK0tIYts"
     ],
-    "build": { "Git": null, "WebDemo": null, "AndroidDemo": null }
+    "build": { "Git": "https://github.com/realsudarshan/lms_platform_with_AI", "WebDemo": "https://gyanwallaacademy.vercel.app/", "AndroidDemo": null }
   },
   {
     "id": 4,
@@ -511,7 +515,7 @@ export const projects: ProjectType[] = [
         "url": "https://sudarshandhakal.com.np/blog/from-spreadsheet-hell-to-building-an-ai-powered-receipt-tracker-saas"
       }
     ],
-    "demoUrl": "https://reciept-extracter.vercel.app",
+    "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7402433434167730176?compact=1",
     "journey": [
       {
         "milestone": "Problem Identification & Solution Design",
@@ -631,24 +635,18 @@ export const projects: ProjectType[] = [
       }
     ],
     "gallery": [
-      "Landing page hero section with 'Drop & Forget' value proposition",
-      "Receipt upload interface with drag-and-drop functionality and format support",
-      "Real-time processing status with animated spinner and progress indicators",
-      "Extracted receipt data display showing merchant, date, total, tax, and line items",
-      "Expense analytics dashboard with pie charts and spending trend visualizations",
-      "Merchant frequency analysis showing most-visited stores with visit counts",
-      "CSV export preview for QuickBooks/Xero integration",
-      "Pricing comparison table highlighting Free, Basic, and Pro tier features",
-      "Usage tracking interface showing scans remaining in current billing period",
-      "Upgrade modal with tier benefits and Stripe checkout integration",
-      "Multi-agent architecture diagram showing Supervisor, Scanner, and Database agents",
-      "System architecture flow: Upload → Convex → Inngest → AI → Validation → Real-time UI",
-      "Error handling UI with retry button and clear error messages",
-      "Mobile responsive view demonstrating cross-device compatibility",
-      "Admin dashboard showing system metrics, AI costs, and user analytics",
-      "Receipt history view with search, filters, and batch operations"
+      "https://media.licdn.com/dms/image/v2/D5622AQHExMlxyp0DpQ/feedshare-shrink_2048_1536/B56ZsYlBV2IcAw-/0/1765643918265?e=1770854400&v=beta&t=pdl1DDWgF2zCgkK3DY2m4Fy25gd19cYIse5sLcdXddg",
+      "https://media.licdn.com/dms/image/v2/D5622AQHOjZXhAqb76g/feedshare-shrink_1280/B56ZsYlBVyJEAw-/0/1765643918152?e=1770854400&v=beta&t=Ei5Ae5kYJa6lTTUtxqdlP89tBupQqWWRjM8783MSuio",
+      "https://media.licdn.com/dms/image/v2/D5622AQEzu-UEAkIyKQ/feedshare-shrink_2048_1536/B56ZsYlBUeGkA0-/0/1765643917925?e=1770854400&v=beta&t=b6FZa7_RPuMpI3apH4zX9eOkHxyvKtyPzNulz2XHm7o",
+      "https://media.licdn.com/dms/image/v2/D5622AQECBaDaOr5T3g/feedshare-shrink_2048_1536/B56ZsYlBUaIkA0-/0/1765643917740?e=1770854400&v=beta&t=DpSCkL0QJ-ekFB9XK1qkqffcVjXvcC08Wo0P3Q_tPR8",
+      "https://media.licdn.com/dms/image/v2/D5622AQGMWdUFrlMQHg/feedshare-shrink_2048_1536/B56ZsYlBUKI8Aw-/0/1765643917923?e=1770854400&v=beta&t=nQOO9sbWbxhnmfM1huz6wfRYfsZnD9B6vNlwUhSg_7I",
+      "https://media.licdn.com/dms/image/v2/D5622AQEU6LGy3J6WBQ/feedshare-shrink_2048_1536/B56ZsYlBVkI0Aw-/0/1765643917954?e=1770854400&v=beta&t=X_ScPB4Sz0E6LEmfiSolZS5L-2OjXxcoQCET2WS82yA",
+      "https://media.licdn.com/dms/image/v2/D5622AQFbxd5B1CXIBQ/feedshare-shrink_2048_1536/B56ZsYlBUTGkAw-/0/1765643917728?e=1770854400&v=beta&t=DLV_nFWv307UEwvVhZVFCkEa38k9_G5u66bo98IxVyM",
+      "https://www.sudarshandhakal.com.np/images/receipt_tracker_blog/automatic_retry.png",
+      "https://www.sudarshandhakal.com.np/images/receipt_tracker_blog/sm_main_img.png",
+      
     ],
-    "build": { "Git": null, "WebDemo": null, "AndroidDemo": null }
+    "build": { "Git": "https://github.com/realsudarshan/extracter", "WebDemo": "https://reciept-extracter.vercel.app", "AndroidDemo": null }
   },
   {
     "id": 5,
@@ -705,7 +703,7 @@ export const projects: ProjectType[] = [
         "url": "https://sudarshandhakal.com.np/blog/sero-fero-social-media-platform"
       }
     ],
-    "demoUrl": "https://sero-fero.web.app",
+    "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7400712768846475264?compact=1",
 
     "journey": [
       {
@@ -844,28 +842,24 @@ export const projects: ProjectType[] = [
       }
     ],
     "gallery": [
-      "Landing page with hero section and call-to-action for new users",
-      "User registration and login interface with form validation",
-      "Main social feed with infinite scroll and real-time post updates",
-      "Post creation interface with rich text editor and image upload via Dropzone",
-      "User profile page showing avatar, bio, and user-specific post history",
-      "Post interaction UI with like, comment, and share functionality",
-      "Comments section with nested replies and real-time updates",
-      "Image upload modal with drag-and-drop support and preview",
-      "Toast notifications using Sonner for user feedback and alerts",
-      "Mobile responsive view demonstrating cross-device compatibility",
-      "Docker Compose architecture diagram showing Appwrite, MariaDB, Redis, and Traefik",
-      "Cloudflare Tunnel configuration eliminating exposed ports with zero-trust access",
-      "Infrastructure diagram: GCP VM → Traefik → Appwrite → Cloudflare Tunnel → Users",
-      "Development vs Production environment configuration comparison",
-      "Security architecture showing SSL/TLS encryption, input validation, and rate limiting layers",
-      "Performance optimization dashboard with TanStack Query caching and lazy loading metrics"
+      "https://www.sudarshandhakal.com.np/images/fromideatodeploymentsero-fero/artitecture.png",
+      "https://www.sudarshandhakal.com.np/images/fromideatodeploymentsero-fero/appwriteconsole.png",
+      "https://www.sudarshandhakal.com.np/images/fromideatodeploymentsero-fero/frontend.png",
+      "https://media.licdn.com/dms/image/v2/D5622AQF4eOYr-tWC0w/feedshare-shrink_2048_1536/B56ZrYgJg5HYAw-/0/1764568898986?e=1770854400&v=beta&t=s2-8ycqFTlzI81pZfQUBj5N21huLM46GQEbdPr4k9Dk",
+      "https://media.licdn.com/dms/image/v2/D5622AQG_6BTceh74sg/feedshare-shrink_2048_1536/B56ZrYgJh7KACM-/0/1764568899113?e=1770854400&v=beta&t=AjVfgHMhyURW4E0_qW3zMitqbEwXRzn61-ydGDxtdt0",
+      "https://media.licdn.com/dms/image/v2/D5622AQEsBCApKPH_Rg/feedshare-shrink_2048_1536/B56ZrYgJiZJUAw-/0/1764568898752?e=1770854400&v=beta&t=hhwmaVtMCaCTb-9K6kl6lmii2EcA5Z6_av_ICDLi2WM",
+      "https://media.licdn.com/dms/image/v2/D5622AQFml5kcgpv9JA/feedshare-shrink_2048_1536/B56ZrYgJhyLAAw-/0/1764568899237?e=1770854400&v=beta&t=dCdDdoX4vQG6MBnCYb2B4whcbYPq1so1Q6iDUatwUNU",
+      "https://media.licdn.com/dms/image/v2/D5622AQGX-mG0U__7TA/feedshare-shrink_2048_1536/B56ZrYgJijHIAw-/0/1764568899221?e=1770854400&v=beta&t=M5jFN3kQi4k_oI3DFTS6QP4q3cqsVDkSJUcXdXaYnH0",
+      "https://media.licdn.com/dms/image/v2/D5622AQF0qWonIvFJvw/feedshare-shrink_800/B56ZrYgJh7KAAg-/0/1764568898503?e=1770854400&v=beta&t=xg-37FnERmxTxZhE9jxkyMmwJfwvJUVrgB-_cuMHKXE",
+      "https://media.licdn.com/dms/image/v2/D5622AQEyt1XnmL4hjw/feedshare-shrink_2048_1536/B56ZrYgJh3HQAw-/0/1764568899242?e=1770854400&v=beta&t=3-6-IIjt8yVOI3dmRCmDmwSIDqb7BQKAFBzUnZV_i84",
+      "https://media.licdn.com/dms/image/v2/D5622AQEAVGj1bNgO3Q/feedshare-shrink_2048_1536/B56ZrYgJivG4A0-/0/1764568899059?e=1770854400&v=beta&t=rmkUcHMhc9X434rJrNLPP5FZsupmeIkd8w3eD_oFOKU",
+      
     ],
-    "build": { "Git": null, "WebDemo": null, "AndroidDemo": null }
+    "build": { "Git": "https://github.com/realsudarshan/social_media", "WebDemo": "https://sero-fero.web.app/sign-in", "AndroidDemo": null }
   },
   {
     "id": 6,
-    "title": "CrimeLedger",
+    "title": "CrimeLedger", 
     "tagline": "Blockchain based crime management platform",
     "gradient": "from-gray-700 via-gray-900 to-black",
     "summary": "CyberLedger (Crime Ledger) is a blockchain-powered criminal record management portal designed for police authorities to ensure transparency, prevent unauthorized tampering, and maintain data integrity. The system implements a four-stage workflow where operational officers create reports, senior officers review and approve them, approved records are hashed and stored on Ethereum Sepolia blockchain, and validation mechanisms verify data authenticity by comparing MongoDB records with blockchain hashes. This immutable architecture prevents deletion or modification of crime records, creating an auditable trail for law enforcement agencies.",
@@ -902,11 +896,11 @@ export const projects: ProjectType[] = [
     ],
     "blogs": [
       {
-        "title": "CyberLedger: Securing Crime Records with Blockchain",
-        "url": "https://sudarshandhakal.com.np/blog/cyberledger-blockchain-crime-records"
+        "title": "CyberLedger: Securing Crime Records with Blockchain README from github",
+        "url": "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/README.md"
       }
     ],
-    "demoUrl": "https://github.com/realsudarshan/crime-ledger",
+    "demoUrl": undefined,
 
     "journey": [
       {
@@ -1045,24 +1039,15 @@ export const projects: ProjectType[] = [
       }
     ],
     "gallery": [
-      "Home page with system overview and login options for different officer roles",
-      "Operational officer crime report submission form - Page 1: Basic case information",
-      "Operational officer crime report submission form - Page 2: Suspect profile details",
-      "Operational officer crime report submission form - Page 3: Evidence and witness information",
-      "Operational officer crime report submission form - Page 4: Additional case notes and attachments",
-      "Senior officer PIN authentication screen providing extra security layer",
-      "Senior officer dashboard showing pending reports awaiting approval",
-      "Report review interface with detailed crime information and approve/reject buttons",
-      "Blockchain submission confirmation showing transaction ID and Sepolia explorer link",
-      "Validation dashboard comparing MongoDB hash with blockchain-stored hash",
-      "Data integrity verification showing successful hash match confirmation",
-      "Tamper detection alert displaying hash mismatch when MongoDB data modified",
-      "Search and filter interface for crime record management with multiple criteria",
-      "Mermaid flowchart diagram illustrating four-stage workflow from creation to validation",
-      "Sepolia Etherscan transaction view showing on-chain crime record hash storage",
-      "System architecture diagram: React → Express → MongoDB + Ethereum Sepolia"
+      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/raw/main/assests/homepage.jpeg",
+      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/oo2.jpeg?raw=true",
+      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/oo1.jpeg?raw=true",
+      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/oo3.jpeg?raw=true",
+      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/oodashboard.jpeg?raw=true",
+      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/sopin.jpeg?raw=true",
+     
     ],
-    "build": { "Git": null, "WebDemo": null, "AndroidDemo": null }
+    "build": { "Git": "https://github.com/realsudarshan/Criminalreportsystemusingblockchain", "WebDemo": "", "AndroidDemo": null }
   }
 
 

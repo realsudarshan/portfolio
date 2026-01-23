@@ -145,26 +145,38 @@ export function ProjectDialog({
 
             {/* Tabs */}
             <div className="flex gap-1 overflow-x-auto border-b border-border bg-secondary/50 px-4 py-2">
-              {tabs.map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`relative whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                    activeTab === tab
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {activeTab === tab && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute inset-0 rounded-lg bg-accent"
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{tab}</span>
-                </button>
-              ))}
+              {tabs.map((tab) => {
+    const isActive = activeTab === tab;
+    return (
+      <motion.button
+        key={tab}
+        onClick={() => setActiveTab(tab)}
+        whileHover={{ y: -1 }} // Subtle lift on hover
+        whileTap={{ scale: 0.96 }} // Tactile press effect
+        className={`relative flex items-center justify-center whitespace-nowrap rounded-xl px-5 py-2.5 text-sm font-bold transition-all duration-200 ${
+          isActive
+            ? "text-primary-foreground shadow-lg shadow-primary/20"
+            : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+        }`}
+      >
+        {isActive && (
+          <motion.div
+            layoutId="activeTab"
+            className={`absolute inset-0 rounded-xl bg-gradient-to-r ${project.gradient || "from-primary to-primary/80"}`}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          />
+        )}
+        <span className="relative z-10 flex items-center gap-2">
+          {tab}
+          {isActive && <motion.div 
+            initial={{ scale: 0 }} 
+            animate={{ scale: 1 }} 
+            className="h-1.5 w-1.5 rounded-full bg-primary-foreground" 
+          />}
+        </span>
+      </motion.button>
+    );
+  })}
             </div>
 
             {/* Content */}
@@ -359,9 +371,7 @@ function DemoTab({ project }: { project: ProjectType }) {
 
   return (
     <div className="space-y-4">
-      <h4 className="mb-6 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-        Live Demo
-      </h4>
+     
       {demoUrl ? (
         <div className="overflow-hidden rounded-2xl border border-border">
           <div className="flex items-center gap-2 border-b border-border bg-secondary/50 px-4 py-3">

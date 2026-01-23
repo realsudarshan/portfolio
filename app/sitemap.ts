@@ -4,7 +4,7 @@ import { sortPosts } from 'lib/sort';
 export default async function sitemap() {
   let allPosts = await getBlogPosts();
 
-  const posts = sortPosts(allPosts).map(({ slug, metadata }) => ({
+  const posts = sortPosts(allPosts).map(({ slug, metadata }: { slug: string; metadata: { title: string; date: string; description: string } }) => ({
     url: `https://sudarshandhakal.com.np/blog/${slug}`,
     lastModified: metadata.date
   }));

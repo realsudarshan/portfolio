@@ -26,7 +26,7 @@ export default async function BlogPage() {
 
       <div className="mt-12">
         <ul className="divide-y divide-slate-200 dark:divide-slate-800" role="list">
-          {sortPosts(allPosts).map(({ slug, metadata }) => {
+          {sortPosts(allPosts).map(({ slug, metadata }: { slug: string; metadata: { title: string; date: string; description: string } }) => {
             const permalink = slug.replaceAll(' ', '-');
             return (
               <li className="py-10 first:pt-0" key={slug}>

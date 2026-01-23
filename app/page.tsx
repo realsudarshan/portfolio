@@ -36,6 +36,29 @@ export default async function Page() {
         </div>
       </section>
 
+
+
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <header className="flex flex-row justify-between items-end mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold ">Featured Projects</h2>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/realsudarshan"
+              className="text-blue-600 font-medium hover:underline capitalize"
+            >
+              see all projects
+            </a>
+          </header>
+          <PortfolioGrid/>
+          {/* Add your project cards here */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+             {/* Placeholder for projects */}
+          </div>
+        </div>
+      </section>
+
       {/* Recent Posts Section */}
       <section className="bg-slate-50 dark:bg-slate-900 py-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -49,14 +72,14 @@ export default async function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sortPosts(allPosts)
               .slice(0, 3)
-              .map(({ slug, metadata }) => (
+              .map(({ slug, metadata }: { slug: string; metadata: { title: string; date: string; description: string, banner: string } }) => (
                 <article 
                   className="group bg-white dark:bg-slate-950 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow" 
                   key={slug}
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <Image
-                      src={metadata.banner}
+                      src={metadata?.banner}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       alt={metadata.title}
@@ -82,26 +105,7 @@ export default async function Page() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <header className="flex flex-row justify-between items-end mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold ">Featured Projects</h2>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/realsudarshan"
-              className="text-blue-600 font-medium hover:underline capitalize"
-            >
-              see all projects
-            </a>
-          </header>
-          <PortfolioGrid/>
-          {/* Add your project cards here */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-             {/* Placeholder for projects */}
-          </div>
-        </div>
-      </section>
+      
     </>
   );
 }
