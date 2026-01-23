@@ -37,11 +37,11 @@ export default async function Page() {
       </section>
 
       {/* Recent Posts Section */}
-      <section className="bg-slate-50 py-16">
+      <section className="bg-slate-50 dark:bg-slate-900 py-16">
         <div className="max-w-7xl mx-auto px-6">
           <header className="flex flex-row justify-between items-end mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Recent Posts</h2>
-            <Link href="/blog" className="text-blue-600 font-medium hover:underline capitalize">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Recent Posts</h2>
+            <Link href="/blog" className="text-blue-600 dark:text-blue-400 font-medium hover:underline capitalize">
               see all posts
             </Link>
           </header>
@@ -51,7 +51,7 @@ export default async function Page() {
               .slice(0, 3)
               .map(({ slug, metadata }) => (
                 <article 
-                  className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-shadow" 
+                  className="group bg-white dark:bg-slate-950 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow" 
                   key={slug}
                 >
                   <div className="relative aspect-video overflow-hidden">
@@ -64,14 +64,14 @@ export default async function Page() {
                   </div>
                   <div className="p-6 space-y-3">
                     <Link href={`/blog/${slug}`}>
-                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {metadata.title}
                       </h3>
                     </Link>
-                    <p className="text-slate-600 text-sm line-clamp-3">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">
                       {metadata.description}
                     </p>
-                    <div className="pt-4 text-xs font-medium text-slate-400 uppercase tracking-wider">
+                    <div className="pt-4 text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                       <Time time={metadata.date} />
                     </div>
                   </div>
@@ -85,7 +85,7 @@ export default async function Page() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <header className="flex flex-row justify-between items-end mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Featured Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold ">Featured Projects</h2>
             <a
               target="_blank"
               rel="noopener noreferrer"

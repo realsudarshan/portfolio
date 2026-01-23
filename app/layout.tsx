@@ -73,7 +73,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased">
+      <body className="antialiased bg-background text-foreground">
          <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         
         <main id="main-content" tabIndex={-1} className="outline-none">
-          {/* Note: You likely don't want an <h1> here if your child pages also have <h1>s */}
+         
           
           {children}
           <Analytics />

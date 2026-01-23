@@ -29,11 +29,11 @@ export interface ProjectType {
 export const projects: ProjectType[] = [
   {
     "id": 1,
-    "title": "dotly",
+    "title": "Dotly",
     "gradient": "from-purple-500 via-pink-500 to-red-500",
     "tagline": "AI powered journeling App",
     "summary": "Dotly is an AI-native journaling platform that transforms personal reflection through intelligent organization, therapeutic conversation, and behavioral psychology. Built with a Backend-as-a-Service philosophy, it delivers seamless cross-platform experiences across Web and Android while leveraging RAG pipelines and high-parameter language models to surface hidden patterns in users' thoughts. The app solves the journaling paradox: users want to write freely without manual organization, yet still need to find entries later. Through invisible AI auto-categorization, context-aware therapeutic chat, and psychologically-driven streak systems, Dotly achieved a 34% improvement in day-7 retention and doubled user engagement—all built by a solo developer in just 3 months.",
-    "build": { "Git": null, "WebDemo": null, "AndroidDemo": null },
+    "build": { "Git": "https://github.com/realsudarshan/Dotly", "WebDemo": "https://dotly--giu0n57p5w.expo.app/sign-in#/", "AndroidDemo": "https://expo.dev/accounts/sudarshandhakal/projects/dotly/builds/5e881795-92a5-4798-914e-f77c08ce80d9" },
     "techstack": [
       "React Native with Expo (Managed Workflow) - Cross-platform mobile development with zero native configuration",
       "Expo Router - File-based navigation system for intuitive app structure",
@@ -65,8 +65,8 @@ export const projects: ProjectType[] = [
       { "icon": "bell", "label": "Push Notification Retention System - Timezone-aware daily reminders via Expo push service personalized to user's local time. 'Don't break your streak!' at 8 PM local time with deep-link to new entry screen. Achieved 47% open rate and 2.3x higher retention at day 30 for notification users." },
       { "icon": "cloud-upload", "label": "Over-The-Air Update Pipeline - Instant JavaScript bundle updates via EAS without Play Store review delays. GitHub Actions CI/CD triggers EAS Build on push to main, AAB to internal testing track, Vercel auto-deploy for web. eas update --branch production fixes critical bugs in hours vs days. Native code changes require full build (only 10% of bugs)." }
     ],
-    "blogs": [{ "title": "Building Dotly: A Technical Deep Dive", "url": "https://sudarshandhakal.com/blog/building-dotly-technical-deep-dive" }],
-    "demoUrl": "https://dotly.app",
+    "blogs": [{ "title": "Building Dotly: A Technical Deep Dive", "url": "https://www.sudarshandhakal.com.np/blog/making-of-dotly" }],
+    "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7419798476990922752?collapsed=1",
     "journey": [
       {
         "milestone": "Foundational Architecture & Type Safety",

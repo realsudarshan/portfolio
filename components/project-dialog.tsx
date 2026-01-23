@@ -203,29 +203,39 @@ function InfoTab({ project }: { project: ProjectType }) {
 
       {/* Features */}
       <div>
-        <h4 className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-          Features
-        </h4>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
-          {project.features.map((feature) => {
-            const Icon = iconMap[feature.icon] || Code;
-            return (
-              <div
-                key={feature.label}
-                className="flex items-center gap-3 rounded-xl border border-border bg-secondary/50 p-3"
-              >
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent">
-                  <Icon className="h-4 w-4 text-foreground" />
-                </div>
-                <span className="text-sm font-medium text-foreground">
-                  {feature.label}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+  <h4 className="mb-6 text-sm font-medium uppercase tracking-wider text-muted-foreground">
+    Features
+  </h4>
+  <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {project.features.map((feature) => {
+      const Icon = iconMap[feature.icon] || Code;
+      return (
+        <div
+          key={feature.label}
+          className="group flex flex-col gap-5 rounded-3xl border border-border bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/60 p-7 shadow-xl transition-all hover:scale-[1.025] hover:shadow-2xl hover:border-blue-500/40 hover:bg-gradient-to-br hover:from-blue-900/80 hover:via-slate-900/80 hover:to-blue-800/60"
+        >
+          {/* Header Row: Icon and Title */}
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 via-blue-400 to-blue-700 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform">
+              <Icon className="h-6 w-6 text-white drop-shadow" />
+            </div>
+            <h5 className="text-lg font-bold leading-tight text-white group-hover:text-blue-200 transition-colors">
+              {feature.label.split(' - ')[0]} 
+            </h5>
+          </div>
 
+          {/* Description Content */}
+          <div className="text-[15px] leading-relaxed text-blue-100/90 group-hover:text-white transition-colors min-h-[48px]">
+            {/* If your labels contain the full text, we render it here */}
+            {feature.label.includes(' - ') 
+              ? feature.label.split(' - ').slice(1).join(' - ') 
+              : feature.label}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
       {/* Tech Stack */}
       <div>
         <h4 className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">
@@ -363,11 +373,12 @@ function DemoTab({ project }: { project: ProjectType }) {
             <span className="ml-2 text-xs text-muted-foreground">{demoUrl}</span>
           </div>
           <div className="aspect-video bg-secondary">
-            <iframe
-              src={demoUrl}
-              className="h-full w-full"
-              title={`${project.title} Demo`}
-            />
+          <iframe
+  src={demoUrl}
+  className="h-full w-full"
+  title={`${project.title} Demo`}
+
+/>
           </div>
         </div>
       ) : (
