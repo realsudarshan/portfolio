@@ -13,18 +13,19 @@ export default async function Page() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         <div className="max-w-3xl space-y-6">
-          <h1 className="text-5xl md:text-7xl font-bold text-blue-950 tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-bold  tracking-tight">
             Hi👋, I&rsquo;m Sudarshan.
           </h1>
-          <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
-            I'm a Nepal-based{' '}
-            <strong className="text-blue-600 font-semibold">full stack web developer</strong>. 
-            I find joy in problem solving and building web projects. I also pen
-            down my thoughts about the web on my{' '}
-            <Link href="/blog" className="text-blue-600 underline hover:text-blue-800 transition-colors">
-              blog
-            </Link>.
-          </p>
+          <p className="text-lg md:text-xl leading-relaxed">
+  I am a Nepal-based  <strong className="text-blue-600 font-semibold">Full Stack Web and Mobile Developer</strong> who 
+  loves turning complex problems into intelligent applications. By 
+  <strong className="text-blue-600 font-semibold"> integrating AI</strong> into my builds, I create seamless digital 
+  experiences across all platforms. I also document my technical journey and 
+  share thoughts on the web through my{' '}
+  <Link href="/blog" className="text-blue-600 underline hover:text-blue-800 transition-colors">
+    blog
+  </Link>.
+</p>
           <div className="pt-4">
             <Link 
               href="/contact" 

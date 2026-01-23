@@ -36,10 +36,12 @@ function CustomImage(props: React.ComponentProps<typeof Image>) {
 }
 
 function CustomPre(props: React.HTMLAttributes<HTMLPreElement>) {
-  const className = props.className;
-
   return (
-    <pre className={className} data-lang={className?.replace(/language-/i, '')}>
+    <pre 
+      {...props} 
+      className="relative p-5 my-6 overflow-x-auto rounded-lg border border-border font-mono text-sm leading-relaxed"
+      style={{ backgroundColor: 'var(--code-bg)' }}
+    >
       {props.children}
     </pre>
   );

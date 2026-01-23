@@ -35,14 +35,15 @@ const About = () => {
 
                     <div className="text-justify">
                         <p className="mb-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Hello! I'm Sudarshan, and I'm based in Kathmandu, Nepal. I am currently studying at National College of Engineering at Lalitpur, Nepal.<br /><br />
-                            Reflecting on my journey so far, I can honestly say it's been a beautiful ride and I hope to grow even further as Software Engineer. My current focus these days
-                            is on expanding my portfolio by building more projects that I can add on here, as well as being a great team player at my current role.<br /><br />
-                            Here are a few technologies I’ve been working with recently:
+                           Hello! I'm Sudarshan, a software engineer based in Kathmandu, Nepal, currently pursuing my studies at the National College of Engineering in Lalitpur.<br/>
+
+Reflecting on my journey so far, it’s been an incredible ride, and I’m constantly looking for ways to evolve. My expertise has grown from building web projects to developing end-to-end solutions as a Full Stack Web and Mobile App Developer. These days, my primary focus is on expanding my portfolio with intelligent applications that integrate AI to solve complex problems.<br/>
+
+I am a dedicated team player in my current role and a lifelong learner committed to growth. When I’m not coding, I document my technical journey and share my thoughts on the future of the web on my blog.
                         </p>
 
                         <ul className="grid grid-cols-2 gap-y-2 mb-6">
-                            {['JavaScript (ES6+)', 'TypeScript', 'React', 'Node.js', 'Postgres SQL', 'NextJS'].map((skill) => (
+                            {['JavaScript (ES6+)', 'TypeScript', 'React', 'Node.js', 'Postgres SQL', 'NextJS','Python','React Native/Expo','AI Integration & LLMs','Tailwind CSS'].map((skill) => (
                                 <li key={skill} className="relative pl-5 before:content-['▹'] before:absolute before:left-0 before:text-green-500">
                                     {skill}
                                 </li>
