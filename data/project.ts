@@ -861,7 +861,7 @@ export const projects: ProjectType[] = [
     "id": 6,
     "title": "CrimeLedger", 
     "tagline": "Blockchain based crime management platform",
-    "gradient": "from-gray-700 via-gray-900 to-black",
+    "gradient": "from-red-700 via-yellow-900 to-gray-100",
     "summary": "CyberLedger (Crime Ledger) is a blockchain-powered criminal record management portal designed for police authorities to ensure transparency, prevent unauthorized tampering, and maintain data integrity. The system implements a four-stage workflow where operational officers create reports, senior officers review and approve them, approved records are hashed and stored on Ethereum Sepolia blockchain, and validation mechanisms verify data authenticity by comparing MongoDB records with blockchain hashes. This immutable architecture prevents deletion or modification of crime records, creating an auditable trail for law enforcement agencies.",
     "techstack": [
       "React.js - Modern frontend library for building interactive user interfaces with component-based architecture",

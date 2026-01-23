@@ -3,23 +3,12 @@
 import { List, Logo } from 'components/icons';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import { useState } from 'react';
-import useSound from 'use-sound';
+
 import { ModeToggle } from './modetoggle';
+import { Sheet, SheetTrigger, SheetContent, SheetClose } from './components/ui/sheet';
 
 export function Header() {
-  const { resolvedTheme, setTheme } = useTheme();
-  const [play] = useSound('/audio/click.mp3');
-  const [visible, setVisible] = useState(false);
 
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
-    play();
-  };
-
-  const toggleNav = () => {
-    setVisible((x) => !x);
-  };
 
   return (
     <header role="banner" className="sticky top-0 z-50 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
@@ -38,17 +27,12 @@ export function Header() {
             {/* Desktop Navigation */}
             <nav
               aria-label="primary"
-              className={`
-                fixed inset-0 bg-white dark:bg-slate-950 p-10 pt-24 transition-transform duration-300 md:static md:p-0 md:bg-transparent md:dark:bg-transparent md:translate-x-0
-                ${visible ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
-              `}
+              className="hidden md:block"
               id="primary-navigation"
-              tabIndex={-1}
             >
               <ul
-                className="flex flex-col md:flex-row gap-8 md:gap-10 text-lg md:text-sm font-medium uppercase tracking-wide text-slate-600 dark:text-slate-400"
+                className="flex flex-row gap-10 text-sm font-medium uppercase tracking-wide text-slate-600 dark:text-slate-400"
                 role="list"
-                onClick={() => setVisible(false)}
               >
                 <li>
                   <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">blog</Link>
@@ -72,19 +56,60 @@ export function Header() {
               </ul>
             </nav>
 
-            {/* Mobile Nav Toggle */}
-            <button
-              type="button"
-              aria-controls="primary-navigation"
-              aria-expanded={visible}
-              className="p-2 ml-2 md:hidden text-slate-600 dark:text-slate-400 z-50"
-              onClick={toggleNav}
-            >
-              <List className="w-6 h-6" />
-            </button>
+            {/* Mobile Nav Sheet */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  aria-label="Open navigation menu"
+                  className="p-2 ml-2 md:hidden text-slate-600 dark:text-slate-400 z-50"
+                >
+                  <List className="w-6 h-6" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-64 p-0">
+                <nav aria-label="mobile-navigation" className="h-full flex flex-col">
+                  <ul className="flex flex-col gap-8 text-lg font-medium uppercase tracking-wide text-slate-600 dark:text-slate-400 p-8" role="list">
+                    <li>
+                      <SheetClose asChild>
+                        <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                          blog
+                        </Link>
+                      </SheetClose>
+                    </li>
+                    <li>
+                      <SheetClose asChild>
+                        <Link href="/aboutpage" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                          About me
+                        </Link>
+                      </SheetClose>
+                    </li>
+                    <li>
+                      <SheetClose asChild>
+                        <Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                          contact
+                        </Link>
+                      </SheetClose>
+                    </li>
+                    <li>
+                      <SheetClose asChild>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://github.com/realsudarshan"
+                          className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        >
+                          gitHub
+                        </a>
+                      </SheetClose>
+                    </li>
+                  </ul>
+                </nav>
+              </SheetContent>
+            </Sheet>
 
             {/* Theme Toggle Button */}
-          <ModeToggle/>
+            <ModeToggle/>
           </div>
         </div>
       </div>

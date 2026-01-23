@@ -32,20 +32,37 @@ export function Footer() {
               Get in touch
             </Link>
           </div>
-
           {/* Social Links */}
           <div className="space-y-3">
             <strong className="block text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Social
             </strong>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://twitter.com/realsudarsan_"
-              className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize"
-            >
-              Twitter
-            </a>
+            <div className="flex flex-col gap-2">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://twitter.com/realsudarsan_"
+                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize"
+              >
+                Twitter
+              </a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://linkedin.com/in/realsudarshan"
+                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize"
+              >
+                LinkedIn
+              </a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/realsudarshan"
+                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
 
           {/* Newsletter Section */}

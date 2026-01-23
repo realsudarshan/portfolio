@@ -9,16 +9,16 @@ export async function GET() {
 
   const feed = new RSS({
     title: 'Sudarshan Dhakal',
-    site_url: 'https://mwtech.vercel.app', //will change later
-    feed_url: 'https://mwtech.vercel.app/rss.xml',
+    site_url: 'https://sudarshandhakal.com.np', //will change later
+    feed_url: 'https://sudarshandhakal.com.np/rss.xml',
     language: 'en_US',
-    image_url: 'https://mwtech.vercel.app/favicon.ico'
+    image_url: 'https://sudarshandhakal.com.np/favicon.ico'
   });
 
-  sortPosts(allPosts).map(({ slug, metadata }) => {
+  sortPosts(allPosts).map(({ slug, metadata }:{slug: string, metadata: any}) => {
     feed.item({
       title: metadata.title,
-      url: `https://mwtech.vercel.app/blog/${slug}`,
+      url: `https://sudarshandhakal.com.np/blog/${slug}`,
       date: metadata.date,
       description: metadata.description,
       categories: metadata.tags

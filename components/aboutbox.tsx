@@ -1,78 +1,47 @@
 import { RiFireLine, RiCupLine, RiGroupLine, RiTrophyLine } from 'react-icons/ri';
 
 export default function AboutSection() {
+  const stats = [
+    {
+      id: 1,
+      icon: <RiFireLine className="text-[40px] text-orange-500 mr-[10px]" />,
+      value: "2",
+      label: "Years of Experience",
+    },
+    {
+      id: 2,
+      icon: <RiCupLine className="text-[40px] text-blue-500 mr-[10px]" />,
+      value: "51",
+      label: "Github Repositories",
+    },
+    {
+      id: 3,
+      icon: <RiGroupLine className="text-[40px] text-green-500 mr-[10px]" />,
+      value: "5+",
+      label: "Launched Projects",
+    },
+    {
+      id: 4,
+      icon: <RiTrophyLine className="text-[40px] text-yellow-500 mr-[10px]" />,
+      value: "100",
+      label: "Code Quality",
+    },
+  ];
+
   return (
-    <div style={{
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      gap: '20px',
-      padding: '20px',
-    }}>
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        width: 'calc(50% - 10px)',
-        minWidth: '200px',
-        maxWidth: '300px',
-      }}>
-        <RiFireLine style={{ fontSize: '40px', color: 'orange', marginRight: '10px' }} />
-        <div>
-          <h3 style={{ margin: '0', fontSize: '24px' }}>1.5</h3>
-          <span style={{ fontSize: '16px' }}>Years of Experience</span>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-5 w-full max-w-5xl mx-auto mt-12">
+      {stats.map((item) => (
+        <div 
+          key={item.id} 
+          className="flex items-center justify-center sm:justify-start min-w-[200px]"
+        >
+          {item.icon}
+          <div>
+            <h3 className="m-0 text-2xl font-bold leading-tight">{item.value}</h3>
+            <span className="text-base text-gray-600 dark:text-gray-400">{item.label}</span>
+          </div>
         </div>
-      </div>
-
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        width: 'calc(50% - 10px)',
-        minWidth: '200px',
-        maxWidth: '300px',
-      }}>
-        <RiCupLine style={{ fontSize: '40px', color: 'blue', marginRight: '10px' }} />
-        <div>
-          <h3 style={{ margin: '0', fontSize: '24px' }}>31</h3>
-          <span style={{ fontSize: '16px' }}>Github Repositories</span>
-        </div>
-      </div>
-
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        width: 'calc(50% - 10px)',
-        minWidth: '200px',
-        maxWidth: '300px',
-      }}>
-        <RiGroupLine style={{ fontSize: '40px', color: 'green', marginRight: '10px' }} />
-        <div>
-          <h3 style={{ margin: '0', fontSize: '24px' }}>4+</h3>
-          <span style={{ fontSize: '16px' }}>Launched Projects</span>
-        </div>
-      </div>
-
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        width: 'calc(50% - 10px)',
-        minWidth: '200px',
-        maxWidth: '300px',
-      }}>
-        <RiTrophyLine style={{ fontSize: '40px', color: 'gold', marginRight: '10px' }} />
-        <div>
-          <h3 style={{ margin: '0', fontSize: '24px' }}>100</h3>
-          <span style={{ fontSize: '16px' }}>Code Quality</span>
-        </div>
-      </div>
-
-      <style jsx>{`
-        @media (max-width: 480px) {
-          div > div {
-            width: 100%;
-            justify-content: center;
-          }
-        }
-      `}</style>
+      ))}
     </div>
   );
 }
