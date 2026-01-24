@@ -7,7 +7,7 @@ const List = (props: SVGProps<SVGSVGElement>) => (
     height={24}
     aria-hidden
     focusable={false}
-    className="fill-default"
+   style={{ fill: 'var(--foreground)' }}
     {...props}
   >
     <g>

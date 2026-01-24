@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import { ModeToggle } from './modetoggle';
 import { Sheet, SheetTrigger, SheetContent, SheetClose } from './components/ui/sheet';
+import { Button } from './components/ui/button';
 
 export function Header() {
 
@@ -57,15 +58,15 @@ export function Header() {
             </nav>
 
             {/* Mobile Nav Sheet */}
-            <Sheet>
+            <Sheet >
               <SheetTrigger asChild>
-                <button
+                <Button
                   type="button"
                   aria-label="Open navigation menu"
-                  className="p-2 ml-2 md:hidden text-slate-600 dark:text-slate-400 z-50"
+                  className="p-2 ml-2 md:hidden bg-white dark:bg-gray-950 z-50 rounded-md border-2 "
                 >
                   <List className="w-6 h-6" />
-                </button>
+                </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-64 p-0">
                 <nav aria-label="mobile-navigation" className="h-full flex flex-col">
