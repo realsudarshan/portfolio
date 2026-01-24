@@ -353,7 +353,7 @@ export const projects: ProjectType[] = [
     "blogs": [
       {
         "title": "Building an AI-Powered Learning Management System in 7 Days",
-        "url": "https://sudarshandhakal.com.np/blog/building-an-ai-powered-learning-management-system-in-7-days"
+        "url": "https://www.sudarshandhakal.com.np/blog/making-of-gyanwalla-lms"
       }
     ],
     "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7411757470051856384?compact=1",
@@ -512,7 +512,7 @@ export const projects: ProjectType[] = [
     "blogs": [
       {
         "title": "From Spreadsheet Hell to Building an AI-Powered Receipt Tracker SaaS",
-        "url": "https://sudarshandhakal.com.np/blog/from-spreadsheet-hell-to-building-an-ai-powered-receipt-tracker-saas"
+        "url": "https://www.sudarshandhakal.com.np/blog/receipt_tracker_blog"
       }
     ],
     "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7402433434167730176?compact=1",
@@ -700,7 +700,10 @@ export const projects: ProjectType[] = [
     "blogs": [
       {
         "title": "Sero Fero: Building a Production-Ready Social Media Platform",
-        "url": "https://sudarshandhakal.com.np/blog/sero-fero-social-media-platform"
+        "url": "https://www.sudarshandhakal.com.np/blog/making-of-sero-fero"
+      },{
+        "title": "How I switch from custom backend to firebase to appwrite",
+        "url": "https://www.sudarshandhakal.com.np/blog/switching-backend-firebase-appwrite"
       }
     ],
     "demoUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7400712768846475264?compact=1",

@@ -41,7 +41,7 @@ export function Footer() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://twitter.com/realsudarsan_"
+                href="https://x.com/realsudarsan"
                 className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize"
               >
                 Twitter
@@ -49,7 +49,7 @@ export function Footer() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://linkedin.com/in/realsudarshan"
+                href="https://www.linkedin.com/in/sudarshan-dhakal-5b4522284/"
                 className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize"
               >
                 LinkedIn
