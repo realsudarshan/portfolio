@@ -1,0 +1,299 @@
+---
+title: Building RYO Arena, a Multi-Agent AI Council for Crypto Tokens
+description: Six specialized AI personas debate a token, reach consensus, and get graded on accuracy over time — how RYO Arena works under the hood, built with Next.js, tRPC, and Ryo's market data tools.
+banner: /images/ryo-arena-multi-agent-trading-council/og.png
+date: 2026-09-10
+tags:
+  - nextjs
+  - react
+  - ai-agents
+---
+
+Most AI trading tools give you a single model's opinion dressed up as a signal. RYO Arena takes a different approach: instead of one model, six differently-minded AI agents independently research a token, argue their case, and converge on a council verdict — while a background system quietly tracks how often each of them turns out to be right.
+
+**Practice positions only — nothing here is financial advice.**
+
+You can try the live app at [ryo-arena-tau.vercel.app](https://ryo-arena-tau.vercel.app) or read the full docs at [ryo-arena-tau.vercel.app/docs](https://ryo-arena-tau.vercel.app/docs).
+
+## The problem with single-model analysis
+
+Ask any general-purpose LLM "should I be bullish on this token" and it will happily give you a confident, well-reasoned-sounding answer. That's exactly the problem. A single model doesn't have a rival opinion to argue against, it doesn't remember whether its last five calls were any good, and it has no mechanism for flagging "I'm genuinely torn on this one." It just outputs whatever its next-token statistics land on, dressed up in the language of certainty.
+
+RYO Arena was built to fix that by structural means rather than prompting tricks: instead of one model producing one verdict, it runs a small council of differently-biased agents against the same token, forces them to reach a consensus (or fail to), and then — critically — keeps score. Every verdict the council has ever issued eventually gets checked against what the price actually did, and that record follows each individual agent, not just the system as a whole.
+
+![Six glowing AI personas gathered around a floating market chart in debate](/images/ryo-arena-multi-agent-trading-council/Council-debate.png)
+
+## What is RYO Arena?
+
+RYO Arena is a research platform, not a signal generator. Six AI agents, each assigned a distinct analytical lens, independently evaluate a token and produce their own verdict. Those verdicts are aggregated into a single consensus call, and every prior call is later scored against what the market actually did — building a running accuracy record per agent, broken out by market regime (risk-on, risk-off, or neutral).
+
+The interesting part isn't the "final answer" so much as the disagreement. When the council splits — some agents bullish, some bearish, all with real conviction — that split is itself a signal worth paying attention to, in a way a single model's confident output never surfaces.
+
+## Features
+
+| Feature | What it does |
+|---|---|
+| **Arena live feed** | A streaming feed of council debates, sorted so the most urgent items — high-conviction splits — float to the top |
+| **Token detail** | Full debate history for any symbol: every verdict, the reasoning trail behind it, and the practice position it implies |
+| **Leaderboard** | Per-agent accuracy rankings, filterable by market regime |
+| **Triggers & Alerts** | Schedule the council to automatically re-analyse a token and notify you when specific conditions fire |
+| **Divergence signals** | Automatic detection of consensus flips, agreement-level drops, and conviction swings between runs |
+| **Reputation scoring** | Every agent's calls get graded against subsequent price action and rolled into the leaderboard |
+
+## The Six Agents
+
+Five agents run independently and in parallel; the sixth runs last, using their combined output to challenge whichever verdict has emerged as the strongest.
+
+| Agent | Role | What it leans on |
+|---|---|---|
+| **Bull** | Builds the upside case | Market scans + token analysis |
+| **Bear** | Builds the risk/downside case | Token analysis + sentiment shifts |
+| **Quant** | Reads technical structure — price action, on-chain data, positioning | Deep analysis + token analysis |
+| **Macro-Regime** | Places the token in the broader macro/risk environment | Market overview + sentiment shifts |
+| **Narrative** | Separates real price-moving news from hype | Live web search + token analysis |
+| **Contrarian** | Runs last and stress-tests whichever peer verdict has the highest conviction | Re-analysis of the emergent leader's thesis |
+
+![The RYO Arena council of six distinct AI personas gathered around a glowing map](/images/ryo-arena-multi-agent-trading-council/Council-debate.png)
+
+## Using RYO Arena
+
+The docs site actually has a full user guide now, and it fills in a lot of the product-level detail that's easy to miss just from the architecture. Here's the walkthrough.
+
+### The live feed and triggering an analysis
+
+Sign in and you land on the Arena page — a live feed of recent council debates. By default it's sorted by an urgency score, which weights split, high-conviction debates above everything else, on the theory that strong internal disagreement is the most worth-reading kind of result. You can re-sort manually by Urgency, by raw Conviction, or by Disagreement if you specifically want to browse the most contested calls.
+
+Typing a symbol into the search bar and selecting it kicks off a full six-agent debate in real time: the five independent agents run in parallel against Ryo's market data, the Contrarian follows up by stress-testing whichever of them came in with the highest conviction, and the consensus — final call, agreement level, conviction score — lands at the top of the feed a few seconds later. To keep things from being spammed, manual analyses are capped at four requests per minute per IP; scheduled rechecks from Triggers & Alerts run on their own separate path and aren't subject to that limit.
+
+![An empty council room with live market charts glowing above the debate table](/images/ryo-arena-multi-agent-trading-council/Live-feed.png)
+
+### Reading a debate card
+
+Each card in the feed condenses a debate down to five things: the token symbol, the final call (bullish/bearish/neutral), the agreement level, a 0–100 conviction score, and a timestamp — plus a short note on the outlier agent if one of the six dissented from the rest.
+
+"Agreement level" is really the headline metric, and it comes in three flavors:
+
+- **Unanimous** — every agent landed on the same stance.
+- **Majority** — most agents agree, with one or more dissenting.
+- **Split** — no clear majority; the council is genuinely divided.
+
+A split result paired with high conviction on both sides is the one worth stopping to read — it means several agents each independently believe something different, and believe it strongly, which the docs flag as often signalling elevated uncertainty or an inflection point rather than noise.
+
+Clicking into a card opens the full token detail page, which shows an agent-by-agent matrix: each agent's stance, its conviction score, the practice position that stance implies (direction, position size, an entry reference, an invalidation level, and a target), and the full reasoning trail — the actual chain of tool calls and findings the agent used to get there. The Contrarian's row is worth checking specifically, since its reasoning trail shows exactly which claims from the consensus leader it tried to poke holes in.
+
+### The leaderboard and how accuracy gets scored
+
+Every practice position the council produces eventually gets resolved. When a token gets re-analysed — manually or through a scheduled trigger — the current price is checked against every unresolved past position for that token: hit the target and the earlier call is marked correct, breach the invalidation level and it's marked incorrect, and anything still sitting between the two stays pending. Each resolution rolls into that agent's Reputation record.
+
+The leaderboard itself surfaces four numbers per agent: accuracy percentage, how many debates have actually been scored (not just issued), average conviction on the calls it got right, and average conviction on the ones it got wrong. A well-calibrated agent looks a specific way in that data — decent accuracy, high conviction on the wins, and low conviction on the losses — which is a meaningfully different (and more useful) signal than accuracy alone.
+
+You can also filter the whole leaderboard by market regime — All, Risk On, Risk Off, or Neutral — since an agent's edge is rarely uniform across conditions. Bull, unsurprisingly, tends to look better in risk-on stretches; Bear tends to look better in risk-off ones. To keep small sample sizes from producing misleading rankings, an agent's accuracy only appears once it's cleared a minimum number of scored debates.
+
+### Divergence signals
+
+Divergence signals fire automatically whenever the council's consensus on a token shifts meaningfully between two consecutive analyses — no configuration required. There are four shift types the detector watches for: a **flip** (the final call itself changed direction), a **divergence** (the agreement level dropped, e.g. from Unanimous to Majority), a **convergence** (agreement increased — previously split agents are coming together), and a **conviction swing** (the conviction score moved by more than 20 points either way).
+
+Each signal that appears in the feed shows the shift type, the previous and new consensus state, a token, a timestamp, and a plain-language note explaining what changed. The docs call out a flip combined with a split as the strongest possible signal — the council reversed its call *and* still can't agree internally on the new direction, which often precedes a volatile move. A convergence signal reads differently: it means the council is gaining confidence in a direction it was previously split on.
+
+Divergence signals are automatic and read-only. Triggers & Alerts is the layer that lets you turn a specific kind of shift into an actual notification.
+
+### Triggers & Alerts
+
+Setting one up is a four-step flow. First you pick a token — only ones the council has already debated at least once show up in the dropdown. Second, a schedule: how often to re-check (from every 15 minutes up to every 24 hours), which days of the week the trigger is active, and an optional daily time window in UTC if you only care about, say, market hours.
+
+Third, conditions — this is where the actual logic lives. There are eight condition types to choose from: the consensus changing at all, the council reaching a specific target stance, agreement dropping below a chosen threshold, conviction rising above or falling below a percentage, a named agent newly taking a specific stance, a generic divergence event, or a shift in the broader market regime. With more than one condition configured, you choose whether the trigger needs *any* of them (OR) or *all* of them simultaneously (AND) to fire.
+
+Fourth, notifications: in-app (which logs a record you can see in Recent Activity), email (rate-limited to one per hour per trigger so a noisy token can't flood your inbox), and a choice between immediate delivery or a batched daily summary.
+
+Existing triggers can be paused and resumed without losing their configuration, edited (which bumps an internal schedule version and cleanly cancels whatever background job was mid-flight), or deleted outright along with their history. The Alerts page also keeps a running log of the last 30 fired events across every trigger you own, and every check — even ones that don't fire — gets recorded as either a FIRED or SILENT run, so you can always tell whether a trigger is actually being evaluated on schedule.
+
+![A judge's gavel beside a glowing scoreboard of rising and falling bars](/images/ryo-arena-multi-agent-trading-council/leaderboard.png)
+
+## How a debate flows
+
+When a user requests analysis on a token, the system kicks off a pipeline roughly like this:
+
+1. Bull, Bear, Quant, Macro-Regime, and Narrative research and argue in parallel, each pulling from Ryo's market-data tools (and, for Narrative, live web search).
+2. Their verdicts feed a consensus engine that produces an agreement level, an overall conviction score, and a final call.
+3. Contrarian takes the highest-conviction peer verdict and tries to poke holes in it before the council's answer is considered final.
+4. A divergence detector compares this consensus against the previous one for the same token, flagging flips or sudden drops in agreement.
+5. Once enough time has passed, a backtesting step grades each agent's earlier verdict against the token's actual price action and updates their reputation score.
+
+Users can also schedule the council to automatically re-check a token on a recurring basis, with configurable alert conditions that trigger an in-app notification or email when something meaningful changes.
+
+Visually, the full request-to-reputation loop looks something like this:
+
+```
+User triggers analysis
+        │
+        ▼
+  runAnalysis(token)
+        │
+        ├─▶ runDebate(token)
+        │      ├─▶ Bull, Bear, Quant, Macro, Narrative — run in parallel
+        │      └─▶ Contrarian — runs after, stress-tests the leader
+        │
+        ├─▶ generateConsensus(verdicts)
+        │      └─▶ agreement level, conviction score, final call
+        │
+        ├─▶ detectDivergence(previous, current)
+        │      └─▶ logs a DivergenceEvent on a flip or agreement drop
+        │
+        └─▶ scoreVerdicts(token, currentPrice)
+               └─▶ updates each agent's Reputation record
+
+Meanwhile, on a schedule:
+  alerts/trigger.scheduled → alertTriggerCheck
+        │  evaluateConditions()
+        ├─▶ notifyInApp  → logs a TriggerEvent
+        └─▶ notifyEmail  → sendAlertEmail() (rate-limited, 1h cooldown)
+```
+
+Every agent call in that pipeline goes through Ryo's MCP API for market data and MixRoute (`gpt-4o-mini`) for the actual reasoning. Keeping tool selection inside the app's own orchestration code — rather than letting an autonomous agent loop decide what to call next — makes the whole thing far more predictable to debug and, just as importantly, easier to make degrade gracefully when a data source is unavailable instead of silently hallucinating numbers.
+
+## Why the agents matter more than the models
+
+It would be easy to assume the "six agents" are just six copies of the same model with different names slapped on. In practice, what separates them is the tool access and the framing each one is given, not a different underlying LLM:
+
+- **Bull and Bear** are mirror images of each other, deliberately built to reach for the case that supports their side rather than a "balanced" take — the balance is supposed to emerge from the council, not from any one agent hedging internally.
+- **Quant** is the only agent explicitly scoped to structural, numeric evidence: price action, on-chain positioning, technical levels. It's the closest thing to a sanity check on the narrative-driven agents.
+- **Macro-Regime** deliberately zooms out. A token can look technically strong and still get vetoed by a risk-off macro backdrop, and this agent's whole job is to make sure that context isn't lost in the token-specific noise.
+- **Narrative** is the one agent with live web search access, tasked specifically with catching the gap between "the chart says X" and "the actual news says Y" — the kind of disconnect that on-chain data alone can't see.
+- **Contrarian** doesn't do independent research at all. It waits until everyone else has spoken, takes the strongest verdict on the table, and tries to break it — which means its usefulness is entirely a function of how good the other five agents' arguments were.
+
+## What gets persisted
+
+Every debate leaves a trail. The database models map roughly one-to-one onto the pipeline above:
+
+- A **Verdict** per agent per debate — stance, conviction, reasoning, and a practice position.
+- A **Consensus** row aggregating those verdicts into a final call, agreement level, conviction score, and any outlier.
+- A **DivergenceEvent** whenever two consecutive consensus snapshots for a token shift meaningfully.
+- A **Reputation** record tracking each agent's running accuracy, split by market regime.
+- **RecheckSchedule**, **AlertTrigger**, **TriggerCheck**, and **TriggerEvent** rows powering the scheduled re-analysis and alerting system.
+
+## Tech stack
+
+RYO Arena is a single deployed Next.js app rather than a library — the app's own orchestration code decides which tools to call, rather than handing that decision to an autonomous agent loop.
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router, React 19) |
+| API layer | tRPC 11 + React Query 5 |
+| Auth | Clerk |
+| Database | PostgreSQL on Neon, via Prisma 5 |
+| Background jobs | Inngest 4 |
+| LLM reasoning | MixRoute API (gpt-4o-mini) |
+| Market data | Ryo's MCP API — token analysis, deep analysis, market scans, market overview |
+| Web search | Tavily |
+| Email alerts | Nodemailer over Gmail SMTP |
+| Styling | Tailwind CSS v4 + shadcn/ui |
+| Validation | Zod |
+
+## How the codebase is organized
+
+The repo is a single Next.js app, with the App Router split cleanly between the authenticated product surface and the API/background-job plumbing:
+
+```
+ryo-arena/
+├── prisma/
+│   └── schema.prisma          # All DB models
+├── src/
+│   ├── app/
+│   │   ├── (app)/             # Authenticated app shell (topbar + nav)
+│   │   │   ├── arena/         # Live debate feed
+│   │   │   ├── leaderboard/   # Agent accuracy rankings
+│   │   │   ├── token/[symbol] # Token debate history
+│   │   │   ├── alerts/        # Triggers & Alerts configuration
+│   │   │   └── docs/          # User guide + developer reference
+│   │   ├── (auth)/            # Clerk sign-in / sign-up pages
+│   │   └── api/
+│   │       ├── inngest/       # Inngest webhook endpoint
+│   │       └── trpc/[trpc]/   # tRPC HTTP handler
+│   ├── components/
+│   │   ├── arena/             # Shared arena UI (nav, search, status strip)
+│   │   ├── landing/           # Marketing page components
+│   │   └── ui/                # shadcn/base-ui component library
+│   ├── lib/
+│   │   ├── arena.ts           # Display helpers (persona labels, stance, timeAgo)
+│   │   ├── llm.ts             # askPersona() — the MixRoute LLM call
+│   │   └── trpc.ts            # tRPC client + React Query provider
+│   └── server/
+│       ├── consensus/         # Consensus aggregation engine
+│       ├── debate/            # runAnalysis() orchestrator
+│       ├── divergence/        # Divergence detection
+│       ├── backtest/          # Verdict scoring + reputation updates
+│       ├── email/             # Nodemailer alert mailer
+│       ├── inngest/           # Inngest function definitions
+│       ├── mcp/               # Ryo MCP tool wrappers + rate limiter
+│       ├── personas/          # The six agent implementations
+│       ├── triggers/          # Alert condition evaluator
+│       └── trpc/routers/      # tRPC routers (alerts, debate, feed, leaderboard…)
+```
+
+The split is deliberate: `server/personas` owns *what each agent argues*, `server/debate` owns *how the pipeline is sequenced*, and `server/consensus` / `server/divergence` / `server/backtest` each own one downstream concern. None of those layers need to know how the others are implemented — the debate orchestrator just calls into personas and hands the result to the consensus engine, which is what makes it realistic to add a seventh agent or a new alert condition without touching the rest of the system.
+
+## Environment variables
+
+Everything the app needs to talk to lives behind an env var, copied from `.env.example` into `.env.local`:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `DATABASE_URL` | Yes | PostgreSQL connection string (Neon recommended) |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` / `CLERK_SECRET_KEY` | Yes | Clerk auth keys |
+| `NEXT_PUBLIC_CLERK_SIGN_IN_URL` / `SIGN_UP_URL` | Yes | Set to `/sign-in` and `/sign-up` |
+| `NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL` / `AFTER_SIGN_UP_URL` | Yes | Set to `/arena` |
+| `RYO_API_URL` | Yes | Ryo MCP base URL (defaults to `https://app-ryochan.com/api/mcp`) |
+| `RYO_API_KEY` | Yes | Ryo MCP bearer token |
+| `MIXROUTE_API_KEY` | Yes | LLM key used for every persona's reasoning call |
+| `TAVILY_API_KEY` | Yes | Powers the Narrative agent's web search |
+| `INNGEST_DEV` | Local only | Set to `1` to run the local Inngest dev server |
+| `INNGEST_EVENT_KEY` / `INNGEST_SIGNING_KEY` | Production only | Inngest production credentials |
+| `GMAIL_USER` / `GMAIL_APP_PASSWORD` | For email alerts | Gmail SMTP credentials for outbound alert mail |
+
+## Running it locally
+
+Getting a local copy up needs Node 20+, a Postgres database (Neon's free tier is enough), and free-tier keys for Clerk, Ryo's MCP API, and Tavily:
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Copy the env template and fill in values
+cp .env.example .env.local
+
+# 3. Push the Prisma schema to your database
+npx prisma db push
+
+# 4. (Optional) Seed a reputation baseline
+npm run seed
+
+# 5. Start the dev server
+npm run dev
+
+# 6. In a second terminal, start the Inngest dev server
+npm run inngest
+```
+
+The app itself comes up at `localhost:3000`; the Inngest dev server runs alongside it at `localhost:8288`, giving you a UI to inspect and replay every background job — which is genuinely useful for watching a scheduled re-check or an alert-trigger evaluation fire without waiting for the real schedule.
+
+## Why build it this way
+
+The design leans hard on Ryo's market-data tools as the foundation for every agent's reasoning, rather than treating them as a thin add-on — external tools like web search only come in as a supplement, mainly for the Narrative agent's job of separating real catalysts from noise. If a data source fails partway through, the pipeline is built to degrade gracefully rather than quietly substitute in placeholder numbers.
+
+The result is less "AI picks a winner" and more a standing research council you can interrogate, argue with, and hold accountable over time — which felt like the more honest way to put LLMs anywhere near trading decisions.
+
+That accountability piece is the part I'd point to as the actual differentiator, more than the multi-agent setup itself. It's not hard to prompt a model into playing five different characters. It's much harder — and much more useful — to build the plumbing that remembers what each of those characters said six weeks ago and checks it against reality. That's where most of the engineering effort in this project actually went: not into fancier prompts, but into the consensus engine, the divergence detector, and the backtesting loop that turns a one-off debate into a running track record.
+
+![A winding mountain path lit by six colored lanterns toward a bright horizon](/images/ryo-arena-multi-agent-trading-council/end.png)
+
+## What's next
+
+A few directions this could go from here:
+
+- Expanding the regime classification beyond risk-on/risk-off/neutral, so reputation scoring can get more granular about *when* an agent tends to be right.
+- Letting users weight the council's final call by each agent's regime-specific track record, instead of treating every verdict equally.
+- Surfacing the Contrarian's rejected counter-arguments in the UI, not just its final stress-tested verdict — the "why it didn't convince the council" is often as informative as the consensus itself.
+
+---
+
+Code is on [GitHub](https://github.com/realsudarshan/Multi-agent-trading-arena), and the full user guide and developer reference live in the [docs](https://ryo-arena-tau.vercel.app/docs).
