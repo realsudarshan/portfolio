@@ -21,6 +21,7 @@ export interface ProjectType {
   demoUrl?: string
   journey: Journey[]
   gallery: string[]
+  projectCardThumbnail: string
   gradient?: string
 
 }
@@ -30,8 +31,9 @@ export const projects: ProjectType[] = [
   {
     "id": 1,
     "title": "Dotly",
+    "projectCardThumbnail": "/project_image/dotly.png",
     "gradient": "from-purple-500 via-pink-500 to-red-500",
-    "tagline": "AI powered journeling App",
+    "tagline": "AI powered journeling App with streak gamification,auto-categorization,context-aware therapeutic chat etc",
     "summary": "Dotly is an AI-native journaling platform that transforms personal reflection through intelligent organization, therapeutic conversation, and behavioral psychology. Built with a Backend-as-a-Service philosophy, it delivers seamless cross-platform experiences across Web and Android while leveraging RAG pipelines and high-parameter language models to surface hidden patterns in users' thoughts. The app solves the journaling paradox: users want to write freely without manual organization, yet still need to find entries later. Through invisible AI auto-categorization, context-aware therapeutic chat, and psychologically-driven streak systems, Dotly achieved a 34% improvement in day-7 retention and doubled user engagement—all built by a solo developer in just 3 months.",
     "build": { "Git": "https://github.com/realsudarshan/Dotly", "WebDemo": "https://dotly--giu0n57p5w.expo.app/sign-in#/", "AndroidDemo": "https://expo.dev/accounts/sudarshandhakal/projects/dotly/builds/5e881795-92a5-4798-914e-f77c08ce80d9" },
     "techstack": [
@@ -163,7 +165,8 @@ export const projects: ProjectType[] = [
   {
     "id": 2,
     "title": "Sarathi",
-    "tagline": "Ride Hailing App",
+    "tagline": "Ride Hailing App with Real-Time driver tracking,Smart price and time estimation,native feel etc",
+    "projectCardThumbnail": "/project_image/sarathi.png",
     "gradient": "from-green-400 via-blue-500 to-purple-600",
     "summary": "Sarathi is a production-ready ride-hailing platform built entirely with the Expo ecosystem that connects riders with drivers for on-demand transportation. The app solves the complex challenge of coordinating real-time GPS data, managing location-based state across multiple screens, and integrating diverse third-party APIs while maintaining type safety and developer velocity. Built with a unified monorepo approach where frontend and backend live in one codebase, Sarathi demonstrates how modern tools can enable a solo developer to build feature-rich, scalable applications that rival industry leaders—all developed over 6 months with seamless cross-platform support for iOS and Android.",
     "build": { "Git": "https://github.com/realsudarshan/sarathi", "WebDemo": null, "AndroidDemo": "https://expo.dev/accounts/sudarshandhakal/projects/sarathi/builds/4a6063aa-46d4-49b1-adf5-2f62b5ad8421" },
@@ -322,7 +325,8 @@ export const projects: ProjectType[] = [
   {
     "id": 3,
     "title": "Gyanwalla Academy",
-    "tagline": "AI powered LMS",
+    "tagline": "AI powered LMS with content management, secure video stream, tiered subscriptions, etc",
+    "projectCardThumbnail": "/project_image/gyanwalla-academy.png",
     "gradient": "from-purple-400 via-pink-500 to-red-500",
     "summary": "LMS with AI is a production-ready learning platform built in seven days that combines real-time content management, secure video streaming, tiered subscriptions, and AI-powered assistance. The platform features an intelligent conversational tutor that searches through actual course content to provide contextual answers with direct lesson links, transforming how students interact with educational material.",
     "techstack": [
@@ -473,8 +477,9 @@ export const projects: ProjectType[] = [
   {
     "id": 4,
     "title": "Extractor",
+    "projectCardThumbnail": "/project_image/extractor.png",
     "gradient": "from-yellow-400 via-red-500 to-pink-500",
-    "tagline": "AI-powered bill scanner",
+    "tagline": "AI-powered bill scanner with  multi-agent architecture,detailed analytics,real time updates and metered billing",
     "summary": "Extractor is a production-ready AI-powered SaaS that transforms receipt management from manual spreadsheet hell into a seamless 'Drop & Forget' experience. Built with a multi-agent architecture, it processes receipts asynchronously with 99.2% accuracy, handles thousands of users with metered billing, and delivers real-time updates without polling. The platform demonstrates enterprise-grade reliability with automatic retries, structured data validation, and sustainable economics at $0.01 per scan.",
     "techstack": [
       "Next.js 15 (React 19) - Modern full-stack framework with server components and optimized performance",
@@ -650,9 +655,10 @@ export const projects: ProjectType[] = [
   },
   {
     "id": 5,
-    "title": "Sero_fero",
-    "tagline": "Social media platform",
+    "title": "Sero Fero",
+    "tagline": "Self-hostable Social media platform with Real-Time Social Feed,Post Creation & Management,Media Upload & Storage etc",
     "gradient": "from-green-400 via-blue-500 to-purple-600",
+    "projectCardThumbnail": "/project_image/sero-fero.png",
     "summary": "Sero-Fero is a full-stack, self-hosted, production-ready social media platform that represents the complete journey from simple concept to enterprise-grade infrastructure. Built through multiple backend migrations (Node.js → Firebase → Appwrite Cloud → Self-hosted Appwrite), the platform demonstrates mastery of Docker orchestration, SSL/TLS security, Cloudflare Tunnels, reverse proxies, and the complex realities of self-hosting. It's a battle-tested application that survived Docker networking nightmares, endless container restarts, and merge conflicts to emerge as a secure, scalable social platform.",
     "techstack": [
       "React 19 - Latest version with concurrent features and improved rendering performance",
@@ -865,8 +871,9 @@ export const projects: ProjectType[] = [
 {
   "id": 6,
   "title": "RYO Arena",
+  "projectCardThumbnail": "/project_image/ryo-arena.png",
   "gradient": "from-yellow-600 via-amber-500 to-red-700",
-  "tagline": "Multi-agent AI trading council with a public, checkable track record",
+  "tagline": "Multi-agent AI trading council with  each track records,Consensus Engine and Divergence Alert,smart alert on market signal shifts",
   "summary": "RYO Arena is a multi-agent research platform built for the RYO-CHAN Virtual Hackathon 2026, addressing a real trust gap in AI-assisted trading: a single AI's confident call carries no way to verify whether that confidence is earned. Six specialised AI agents — Bull, Bear, Quant, Macro-Regime, Narrative, and Contrarian — independently research a token through RYO's read-only market-intelligence tools, then converge on a council consensus that surfaces internal disagreement rather than hiding it. A Consensus Engine and Divergence Alert (submitted as standalone, reusable Track 3 skills) score agreement and detect meaningful shifts over time, while a backtesting pipeline grades every agent's calls against actual subsequent price action and logs the result to a public, regime-aware leaderboard. Built solo, end to end — architecture, six distinct persona prompts, consensus/backtest logic, a scheduled alerts system, and a dark, editorial 'dojo council' visual identity — across Tracks 1, 2, and 3.",
   "build": {
     "Git": "https://github.com/realsudarshan/Multi-agent-trading-arena",
