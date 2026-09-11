@@ -24,10 +24,10 @@ const ContentSecurityPolicy = `
                platform.linkedin.com;
     style-src 'self' 'unsafe-inline';
     img-src * blob: data:;
-    media-src 'none';
+    media-src 'self' blob: drive.google.com;
     connect-src *;
     font-src 'self' data:;
-    frame-src 'self' vercel.live www.linkedin.com;
+    frame-src 'self' vercel.live www.linkedin.com drive.google.com docs.google.com;
 `;
 const securityHeaders = [
   {
@@ -59,7 +59,5 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()'
   }
 ];
-
-
 
 export default nextConfig;
