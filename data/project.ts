@@ -860,198 +860,105 @@ export const projects: ProjectType[] = [
     ],
     "build": { "Git": "https://github.com/realsudarshan/social_media", "WebDemo": "https://sero-fero.web.app/sign-in", "AndroidDemo": null }
   },
-  {
-    "id": 6,
-    "title": "CrimeLedger", 
-    "tagline": "Blockchain based crime management platform",
-    "gradient": "from-red-700 via-yellow-900 to-gray-100",
-    "summary": "CyberLedger (Crime Ledger) is a blockchain-powered criminal record management portal designed for police authorities to ensure transparency, prevent unauthorized tampering, and maintain data integrity. The system implements a four-stage workflow where operational officers create reports, senior officers review and approve them, approved records are hashed and stored on Ethereum Sepolia blockchain, and validation mechanisms verify data authenticity by comparing MongoDB records with blockchain hashes. This immutable architecture prevents deletion or modification of crime records, creating an auditable trail for law enforcement agencies.",
-    "techstack": [
-      "React.js - Modern frontend library for building interactive user interfaces with component-based architecture",
-      "Node.js - JavaScript runtime powering the backend server and API endpoints",
-      "Express.js - Minimal web framework for Node.js handling routing, middleware, and HTTP requests",
-      "MongoDB - NoSQL database storing detailed crime records, suspect profiles, and case information",
-      "Solidity - Smart contract programming language for Ethereum blockchain integration",
-      "Ethereum Sepolia Testnet - Ethereum test network for deploying and testing smart contracts without real ETH",
-      "Hardhat - Ethereum development environment for compiling, deploying, testing, and debugging smart contracts",
-      "Alchemy - Web3 infrastructure provider offering RPC endpoints for Ethereum network connectivity",
-      "Metamask - Browser-based cryptocurrency wallet for signing transactions and interacting with blockchain",
-      "Ethers.js - JavaScript library for interacting with Ethereum blockchain and smart contracts",
-      "Cryptographic Hashing (SHA-256) - Algorithm generating unique fingerprints of crime records for blockchain verification",
-      "Web3.js/Ethers.js - Libraries enabling frontend-blockchain communication for transaction signing and contract interaction"
-    ],
-    "features": [
-      { "icon": "shield", "label": "Immutable Crime Record Storage - Records stored on Ethereum blockchain with cryptographic hashes prevent unauthorized deletion or modification, ensuring permanent audit trail" },
-      { "icon": "workflow", "label": "Four-Stage Workflow System - Operational officers create reports → Senior officers review → Blockchain integration → Validation ensures quality control and accountability" },
-      { "icon": "layers", "label": "Dual-Layer Data Architecture - Detailed records in MongoDB for searchability, cryptographic hashes on blockchain for immutability and verification" },
-      { "icon": "key", "label": "Senior Officer PIN Security - Additional authentication layer requiring PIN code for senior officer access, preventing unauthorized approvals" },
-      { "icon": "fingerprint", "label": "Cryptographic Hash Validation - Data integrity verification by comparing MongoDB record hash with blockchain-stored hash, detecting any tampering attempts" },
-      { "icon": "file-code", "label": "Smart Contract Integration - Solidity smart contracts store report hashes and MongoDB IDs on Ethereum, creating verifiable link between off-chain and on-chain data" },
-      { "icon": "file-text", "label": "Detailed Crime Record Management - Comprehensive forms capturing suspect profiles, case descriptions, evidence details, dates, locations, and officer information" },
-      { "icon": "search", "label": "Search, Filter, and Sort Capabilities - Efficient crime record retrieval with multiple search parameters and sorting options for case management" },
-      { "icon": "users", "label": "Role-Based Access Control - Operational officers create reports, senior officers approve, distinct permissions ensuring proper authorization hierarchy" },
-      { "icon": "layout-dashboard", "label": "Blockchain Verification Dashboard - Real-time validation interface showing blockchain transaction status, hash comparisons, and data integrity confirmations" },
-      { "icon": "check-circle", "label": "Report Review System - Senior officers can approve or reject reports with feedback mechanism, rejected reports return to operational officers for corrections" },
-      { "icon": "link-2", "label": "Ethereum Sepolia Integration - Test network deployment allowing development and testing without financial risk using free testnet ETH" },
-      { "icon": "history", "label": "Transaction History Tracking - Blockchain explorer integration showing all report submissions, approvals, and validation checks with transaction IDs" },
-      { "icon": "alert-triangle", "label": "Tamper-Evident Architecture - Any modification to MongoDB records breaks hash match, immediately flagging data integrity violations" },
-      { "icon": "binary", "label": "Automated Hash Generation - System automatically generates SHA-256 hashes of approved reports before blockchain submission, ensuring consistency" }
-    ],
-    "blogs": [
-      {
-        "title": "CyberLedger: Securing Crime Records with Blockchain README from github",
-        "url": "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/README.md"
-      }
-    ],
-    "demoUrl": undefined,
-
-    "journey": [
-      {
-        "milestone": "Problem Analysis & Solution Design",
-        "details": [
-          "Identified problem: Traditional crime record systems vulnerable to unauthorized modifications and deletions",
-          "Researched blockchain immutability for law enforcement applications",
-          "Designed four-stage workflow: Creation → Review → Blockchain → Validation",
-          "Chose dual-layer architecture: MongoDB for detailed data, Ethereum for verification hashes",
-          "Selected Ethereum Sepolia testnet for cost-free development and testing",
-          "Planned role-based access: Operational officers vs Senior officers",
-          "Defined security requirements: PIN authentication for approvals, cryptographic validation",
-          "Architected hash-based verification system preventing undetected tampering"
-        ]
-      },
-      {
-        "milestone": "Backend Development & MongoDB Integration",
-        "details": [
-          "Set up Node.js and Express.js server with RESTful API architecture",
-          "Designed MongoDB schema for crime records with comprehensive fields",
-          "Created schemas for suspect profiles, case descriptions, evidence details",
-          "Implemented CRUD operations for operational officers to create and edit reports",
-          "Built senior officer review endpoints with approve/reject functionality",
-          "Developed search, filter, and sort APIs for efficient record retrieval",
-          "Added data validation and sanitization for all input fields",
-          "Configured MongoDB Atlas cloud database with proper indexing"
-        ]
-      },
-      {
-        "milestone": "Smart Contract Development with Solidity",
-        "details": [
-          "Wrote Solidity smart contract for storing crime record hashes",
-          "Implemented struct to hold MongoDB document ID and cryptographic hash",
-          "Created addReport function for blockchain record insertion",
-          "Built getReport function retrieving hash by MongoDB ID for validation",
-          "Added event emissions for tracking blockchain transactions",
-          "Implemented access control ensuring only authorized addresses can add records",
-          "Tested contract functions using Hardhat testing framework",
-          "Optimized gas costs for efficient blockchain operations"
-        ]
-      },
-      {
-        "milestone": "Ethereum Infrastructure Setup",
-        "details": [
-          "Created Alchemy account and obtained Sepolia RPC endpoint URL",
-          "Installed and configured Metamask browser extension",
-          "Set up Ethereum wallet and switched to Sepolia testnet",
-          "Acquired free Sepolia ETH from testnet faucets for deployment",
-          "Configured Hardhat development environment with network settings",
-          "Set up .env file with RPC_URL and PRIVATE_KEY for secure credential storage",
-          "Installed ethers.js for blockchain interaction from Node.js backend",
-          "Tested RPC connectivity and wallet balance before deployment"
-        ]
-      },
-      {
-        "milestone": "Smart Contract Deployment & Integration",
-        "details": [
-          "Compiled Solidity smart contract using Hardhat compiler",
-          "Wrote deployment script with proper network configuration",
-          "Deployed contract to Sepolia testnet using 'npx hardhat run scripts/deploy.js --network sepolia'",
-          "Captured deployed contract address from console output",
-          "Verified contract on Etherscan Sepolia block explorer",
-          "Integrated contract address into backend environment variables",
-          "Created backend functions calling smart contract methods using ethers.js",
-          "Tested blockchain writes and reads from Express API endpoints"
-        ]
-      },
-      {
-        "milestone": "Cryptographic Hash System Implementation",
-        "details": [
-          "Implemented SHA-256 hashing algorithm for crime record data",
-          "Created hash generation function combining all critical report fields",
-          "Built automatic hash generation on senior officer approval",
-          "Developed blockchain submission workflow after approval",
-          "Stored MongoDB document ID and hash together in smart contract",
-          "Created validation endpoint comparing MongoDB hash with blockchain hash",
-          "Handled hash mismatch scenarios flagging data integrity violations",
-          "Logged all hash operations for audit trail and debugging"
-        ]
-      },
-      {
-        "milestone": "Frontend Development with React",
-        "details": [
-          "Built React application with component-based architecture",
-          "Created operational officer dashboard for report submission",
-          "Designed multi-step crime record creation form with validation",
-          "Developed senior officer dashboard with PIN authentication",
-          "Built report review interface showing pending approvals",
-          "Implemented approve/reject buttons with feedback mechanisms",
-          "Created validation dashboard displaying hash comparison results",
-          "Added search, filter, sort UI components for record management",
-          "Integrated blockchain transaction status display showing confirmations"
-        ]
-      },
-      {
-        "milestone": "Security & Access Control Implementation",
-        "details": [
-          "Implemented role-based authentication distinguishing officer types",
-          "Added PIN security layer for senior officer dashboard access",
-          "Built authorization middleware preventing unauthorized API access",
-          "Configured CORS policies restricting backend access to frontend domain",
-          "Added input validation preventing injection attacks and malformed data",
-          "Implemented secure session management with JWT tokens",
-          "Stored private keys securely in environment variables, never in code",
-          "Added .gitignore entries ensuring credentials never committed to repository"
-        ]
-      },
-      {
-        "milestone": "Testing & Validation System",
-        "details": [
-          "Created test crime records through operational officer interface",
-          "Verified senior officer approval workflow with PIN authentication",
-          "Tested blockchain submission process with Sepolia testnet transactions",
-          "Validated hash generation consistency across multiple reports",
-          "Performed validation checks comparing MongoDB and blockchain hashes",
-          "Tested tamper detection by manually modifying MongoDB records",
-          "Verified hash mismatch correctly flagged as data integrity violation",
-          "Checked Sepolia block explorer confirming all transactions visible on-chain",
-          "Load tested system with multiple concurrent report submissions"
-        ]
-      },
-      {
-        "milestone": "Deployment & Documentation",
-        "details": [
-          "Created comprehensive README with local setup instructions",
-          "Documented Alchemy RPC URL setup process step-by-step",
-          "Wrote Metamask installation and configuration guide",
-          "Provided private key extraction instructions with security warnings",
-          "Listed Sepolia testnet faucet resources for obtaining free ETH",
-          "Created .env.example template showing required environment variables",
-          "Documented smart contract compilation and deployment commands",
-          "Added Mermaid flowchart visualizing entire system process",
-          "Included screenshots of homepage, forms, dashboards, and PIN security",
-          "Published project to GitHub with proper .gitignore for security"
-        ]
-      }
-    ],
-    "gallery": [
-      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/raw/main/assests/homepage.jpeg",
-      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/oo2.jpeg?raw=true",
-      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/oo1.jpeg?raw=true",
-      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/oo3.jpeg?raw=true",
-      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/oodashboard.jpeg?raw=true",
-      "https://github.com/realsudarshan/Criminalreportsystemusingblockchain/blob/main/assests/sopin.jpeg?raw=true",
-     
-    ],
-    "build": { "Git": "https://github.com/realsudarshan/Criminalreportsystemusingblockchain", "WebDemo": "", "AndroidDemo": null }
-  }
+ // Append this object into the `projects` array in the same file as Dotly.
+// Set `id` to the next available number in your array before merging.
+{
+  "id": 6,
+  "title": "RYO Arena",
+  "gradient": "from-yellow-600 via-amber-500 to-red-700",
+  "tagline": "Multi-agent AI trading council with a public, checkable track record",
+  "summary": "RYO Arena is a multi-agent research platform built for the RYO-CHAN Virtual Hackathon 2026, addressing a real trust gap in AI-assisted trading: a single AI's confident call carries no way to verify whether that confidence is earned. Six specialised AI agents — Bull, Bear, Quant, Macro-Regime, Narrative, and Contrarian — independently research a token through RYO's read-only market-intelligence tools, then converge on a council consensus that surfaces internal disagreement rather than hiding it. A Consensus Engine and Divergence Alert (submitted as standalone, reusable Track 3 skills) score agreement and detect meaningful shifts over time, while a backtesting pipeline grades every agent's calls against actual subsequent price action and logs the result to a public, regime-aware leaderboard. Built solo, end to end — architecture, six distinct persona prompts, consensus/backtest logic, a scheduled alerts system, and a dark, editorial 'dojo council' visual identity — across Tracks 1, 2, and 3.",
+  "build": {
+    "Git": "https://github.com/realsudarshan/Multi-agent-trading-arena",
+    "WebDemo": "https://ryo-arena-tau.vercel.app/",
+    "AndroidDemo": null
+  },
+  "techstack": [
+    "Next.js 16 (App Router, React 19) - Full-stack framework for the live Arena feed, debate detail, and leaderboard views",
+    "tRPC 11 + React Query 5 - End-to-end type-safe API layer between the six-agent backend and the UI",
+    "Prisma 5 + PostgreSQL (Neon) - Relational schema for Verdict, Consensus, DivergenceEvent, and Reputation records",
+    "Clerk (@clerk/nextjs v7) - Auth for the authenticated app shell and per-user alert ownership",
+    "Inngest 4 - Serverless durable workflows for scheduled token re-analysis and alert delivery",
+    "MixRoute API (gpt-4o-mini) - LLM reasoning engine behind each of the six agent personas via askPersona()",
+    "Ryo MCP API - Read-only market research tools: analyzeToken, deepAnalysis, scanMarket, marketOverview, compareTokens, monitorSentimentShift",
+    "Tavily API - Web search grounding for the Narrative agent's signal-vs-story comparison",
+    "Nodemailer 10 (Gmail SMTP) - Alert email delivery with cooldown handling",
+    "Tailwind CSS v4 + shadcn/ui (Base UI primitives) - Dark, editorial 'dojo council' design system",
+    "Zod 4 - Runtime validation for agent output schemas and tRPC inputs",
+    "SuperJSON - Type-safe tRPC transport serialization"
+  ],
+  "features": [
+    { "icon": "users", "label": "Six Independent AI Agents - Bull and Bear build the strongest honest case for and against a token; Quant reads RSI/ATR technicals with no narrative language permitted; Macro-Regime establishes risk-on/risk-off context before ever looking at the token; Narrative checks social/news signal against live market data via Tavily; Contrarian runs last, stress-testing the single highest-conviction verdict from the other five rather than simply opposing the majority — a deliberate redesign after the original 'oppose the majority' framing was caught collapsing into a duplicate of Bear's role." },
+    { "icon": "git-merge", "label": "Consensus Engine (Track 3 skill) - A standalone, reusable aggregation function that takes the panel's independent verdicts and computes agreement level, majority stance, an explicit outlier persona with reasoning, and a final weighted call — built and documented so any RYO builder could plug their own agent's verdict into it." },
+    { "icon": "activity", "label": "Divergence Alert (Track 3 skill) - Compares a token's current council consensus against its previous one and fires a distinct signal — consensus shift, agreement spread widening, or a high-conviction flag — kept semantically separate from a single debate's internal outlier so each backend concept stays legible on its own." },
+    { "icon": "bar-chart-2", "label": "Regime-Aware Reputation Leaderboard - Every resolved verdict is scored against actual subsequent price action and rolled into a Reputation record keyed by (persona, market regime), so an agent's accuracy in risk-on conditions is tracked separately from risk-off. A minimum scored-debate threshold hides misleadingly thin percentages behind an honest 'needs more calls' state instead of an authoritative-looking number." },
+    { "icon": "bell", "label": "Scheduled Alerts & Triggers - Per-user recheck schedules and alert triggers, built on Inngest, re-run council analysis on a cadence and notify in-app and by email when configured conditions fire. Ownership is enforced end to end: every read is filtered by userId, and every write or delete verifies ownership via findFirst before touching a record." },
+    { "icon": "share-2", "label": "Shareable Decision Receipts - A single clean card summarizing one debate's token, each persona's stance, and the consensus call, generated for sharing outside the app." },
+    { "icon": "shield", "label": "Read-Only by Design - Built entirely on RYO's read-only research surface: no wallet access, no balances, no trade execution anywhere in the pipeline. Every practice position is clearly labeled as practice only, never presented as financial advice." },
+    { "icon": "layout", "label": "Dojo Council Visual Identity - A dark, warm-brown, editorial design system built specifically for this project: antique-gold accents reserved for emphasis and selected states, restrained muted semantic colors for bullish/bearish/neutral so no single color dominates the interface, and rectangular architectural composition instead of a typical rounded-card SaaS dashboard." }
+  ],
+  "blogs": [{ "title": "Building RYO Arena: A Multi-Agent AI Council for Crypto Tokens", "url": "https://www.sudarshandhakal.com.np/blog/building-ryo-arena-multi-agent-ai-council-for-crypto-tokens" }],
+  "demoUrl": "https://drive.google.com/file/d/1TMeXR_PywmxNPn0p2ZSdkQ6lq43d44T-/preview",
+  "journey": [
+    {
+      "milestone": "Research & Data Contract Design",
+      "details": [
+        "Investigated RYO's actual MCP tool surface directly against the official Builder Guide rather than the consumer app's marketing copy, confirming the real six-tool contract (market_overview, scan_market, analyze_token, deep_analysis, compare_tokens, monitor_market_sentiment_shift), REST call shape, and rate limits (60 req/min) before writing any integration code",
+        "Chose REST over MCP JSON-RPC for the tool wrapper, since the application's own code decides which tool each persona calls rather than an autonomous agent loop choosing tools mid-conversation",
+        "Designed the Verdict, Consensus, DivergenceEvent, and Reputation data contracts up front, including a persona-agnostic reasoning_trail structure so every agent's tool calls and findings are inspectable, not just its final stance",
+        "Corrected an early architectural assumption that the Consensus Engine counted as a seventh 'agent' — re-scoped the roster to six real personas plus one deterministic aggregation function, and fixed the distinction throughout the UI copy and code"
+      ]
+    },
+    {
+      "milestone": "Six-Agent Persona System",
+      "details": [
+        "Wrote distinct system prompts per persona so disagreement comes from genuinely different tool-selection strategies and reasoning styles, not a shared template with swapped names — Quant is explicitly forbidden from narrative language and reasons only from RSI-14/ATR-14; Macro-Regime establishes a risk-on/risk-off read before ever considering the token",
+        "Redesigned Contrarian mid-build after identifying that its original 'oppose whatever the majority thinks' framing structurally collapsed into duplicating Bear's role whenever the panel leaned one direction — rebuilt it to target and stress-test the single highest-conviction verdict instead, a distinct and non-overlapping function",
+        "Caught and corrected a persona-honesty bug during review: Bear was rendering high-conviction bullish stances even when its own reasoning trail explicitly found no supporting risk case, undermining the persona's purpose — tightened the design rule so conviction always reflects what the evidence actually supports in either direction"
+      ]
+    },
+    {
+      "milestone": "Consensus, Divergence & Backtesting",
+      "details": [
+        "Built the Consensus Engine as a standalone callable function operating on an array of Verdicts, returning agreement level, outlier persona, and a final weighted call — kept independent of the dashboard so it stands on its own as a reusable Track 3 skill",
+        "Built Divergence Alert as a second, separate Track 3 skill comparing a token's current and previous Consensus snapshots, and kept its terminology ('Divergence') strictly distinct in the UI from a single debate's internal 'Outlier' to avoid conflating two different backend concepts",
+        "Implemented scoreVerdictsForToken() and updateReputation(), resolving old verdicts against live price data as a side effect of re-running analysis on a token, upserting Reputation rows keyed by (persona, regime), and gating the leaderboard's displayed accuracy behind a minimum scored-debate threshold so thin samples never look authoritative"
+      ]
+    },
+    {
+      "milestone": "Alerts, Scheduling & Ownership Security",
+      "details": [
+        "Built a per-user AlertTrigger and RecheckSchedule system on Inngest for scheduled re-analysis and conditional notifications, with every table scoped by userId and a unique constraint preventing duplicate schedules on the same token",
+        "Enforced ownership on every write and delete via an explicit findFirst-by-userId check before mutation, preventing one user from modifying another's trigger even with a known record ID",
+        "Deliberately kept the debate/consensus/reputation data itself global and public rather than per-user, since the agents' track record is a shared fact about the system, not a personal statistic — splitting it per-user would have fragmented a thin sample into many thinner ones and undercut the leaderboard's entire purpose"
+      ]
+    },
+    {
+      "milestone": "Interface & Visual Identity",
+      "details": [
+        "Designed a dark, editorial 'dojo council' visual language distinct from typical SaaS dashboard conventions: near-black warm-brown surfaces, antique-gold reserved strictly for emphasis and selected states, and restrained semantic bullish/bearish/neutral colors so no single hue dominates the interface",
+        "Built the Arena live feed (sorted by urgency/disagreement), full Token Detail debate view with per-agent reasoning trails and practice-position levels, and the regime-filterable Leaderboard",
+        "Caught and fixed a data-duplication bug where the Council Pulse panel re-displayed the same per-token stances already shown in the featured debate card, redefining it to surface each agent's backtested accuracy instead — genuinely new information rather than a shorter restatement of the same numbers"
+      ]
+    },
+    {
+      "milestone": "Hardening & Submission",
+      "details": [
+        "Audited the live app for consistency bugs before submission, including a mismatched 'X/6 agree' count against the actual per-agent stances shown, and defined an explicit, computed agreement rule rather than a hand-set display value",
+        "Flagged an unauthenticated, quota-costing tRPC mutation for rate-limiting before public demo access, given the shared 60-req/min budget against RYO's API",
+        "Assembled the final submission package — filled project brief, real tech-stack and environment documentation, and a six-agent architecture overview — cross-checked against the actual deployed repository rather than the original design draft"
+      ]
+    }
+  ],
+  "gallery": [
+    "https://ryo-arena-tau.vercel.app/arena_final.png",
+    "https://www.sudarshandhakal.com.np/_next/image?url=%2Fimages%2Fryo-arena-multi-agent-trading-council%2Fog.png&w=1920&q=75",
+    "https://www.sudarshandhakal.com.np/images/ryo-arena-multi-agent-trading-council/Live-feed.png",
+    "https://www.sudarshandhakal.com.np/images/ryo-arena-multi-agent-trading-council/Council-debate.png",
+    "https://www.sudarshandhakal.com.np/images/ryo-arena-multi-agent-trading-council/leaderboard.png",
+    "https://www.sudarshandhakal.com.np/images/ryo-arena-multi-agent-trading-council/end.png"
+  ]
+}
 
 
 
