@@ -60,7 +60,17 @@ export const metadata: Metadata = {
     title: 'Sudarshan Dhakal',
     card: 'summary_large_image'
   },
-  manifest: '/manifest.webmanifest',
+  manifest: '/site.webmanifest',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any', type: 'image/x-icon' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ]
+  },
   verification: {
     google: '3Ie9_BMzfU7i6S_Jrt7ckAL6MgcW5fmVc8m-RldvYzg',
     yandex: '146231e50e9ee800',
@@ -73,6 +83,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className="antialiased bg-background text-foreground">
         
          <ThemeProvider
@@ -81,22 +94,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             enableSystem
             disableTransitionOnChange
           >
-        <a 
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-white p-4 z-50" 
+        <a
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-white p-4 z-50"
           href="#main-content"
         >
           Skip to content
         </a>
-        
+
         <Header />
-        
+
         <main id="main-content" tabIndex={-1} className="outline-none">
-         
-          
+
+
           {children}
           <Analytics />
         </main>
-        
+
         <Footer />
         </ThemeProvider>
       </body>

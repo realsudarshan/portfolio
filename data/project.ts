@@ -154,12 +154,12 @@ export const projects: ProjectType[] = [
       }
     ],
     "gallery": [
-      "https://media.licdn.com/dms/image/v2/D5622AQFIMub8gaSPaQ/feedshare-shrink_1280/B56ZvmG4jyHQAc-/0/1769092123076?e=1770854400&v=beta&t=cb54DgQDsxBXK1SylT_NdAR5Gwyg4r5kVe3Jv2Y3jBc",
-      "https://media.licdn.com/dms/image/v2/D5622AQGARoS2QZSbLQ/feedshare-shrink_1280/B56ZvmG4JFIQAc-/0/1769092121357?e=1770854400&v=beta&t=yMtCnolBW7ZIuMAcDPiLk9ydjmwVphVvSen3VI-N-os",
-      "https://media.licdn.com/dms/image/v2/D5622AQGpxgB8aeoJDA/feedshare-shrink_2048_1536/B56ZvmG4JhIsAk-/0/1769092121399?e=1770854400&v=beta&t=EzHAGW9fdxDosg9KsUEHTFxyOInBMy0IUZDaCLiTGMs",
-      "https://media.licdn.com/dms/image/v2/D5622AQG8b7pOVS9l5Q/feedshare-shrink_2048_1536/B56ZvmG4PnHAA0-/0/1769092121861?e=1770854400&v=beta&t=r7HdTNX2GBpyTHZzhhn-5m06BXPjw8b6pY7_TeVwseQ",
-      "https://media.licdn.com/dms/image/v2/D5622AQG2JK5-6PKZJg/feedshare-shrink_2048_1536/B56ZvmG4L.JUAk-/0/1769092121559?e=1770854400&v=beta&t=nj8TVn0bLcLI5qbEK-7q-y_qEUOHxaNGmykbLNbK8xw",
-      "https://media.licdn.com/dms/image/v2/D5622AQFi7xb51lDLIA/feedshare-shrink_2048_1536/B56ZvmG4YxIUAk-/0/1769092122415?e=1770854400&v=beta&t=G0ounlLMGzb4P6Y7gKddDm-MoZ8lMJRj0_mVFAW5s44",
+      "/gallery/dotly/1.jpg",
+      "/gallery/dotly/2.jpg",
+      "/gallery/dotly/3.jpg",
+      "/gallery/dotly/4.jpg",
+      "/gallery/dotly/5.jpg",
+      "/gallery/dotly/6.jpg",
     ]
   },
   {
@@ -462,15 +462,11 @@ export const projects: ProjectType[] = [
   "https://www.sudarshandhakal.com.np/images/making-of-gyanwalla-lms/aitutoringyanwalla.png",
   "https://sudarshandhakal.com.np/images/making-of-gyanwalla-lms/flowdiagram%20(1).png",
   "https://sudarshandhakal.com.np/images/making-of-gyanwalla-lms/systemdesign.png",
-      "https://media.licdn.com/dms/image/v2/D5622AQHniC3rSEckhA/feedshare-shrink_1280/B56Ztzy7KAIcAs-/0/1767174289629?e=1770854400&v=beta&t=8C4g3cSi1PqyoZkNRsmAHPe72klfr57uLDuy00jKMn8",
-      "https://media.licdn.com/dms/image/v2/D5622AQFTHiqIR6QueA/feedshare-shrink_1280/B56ZtB_0snHIAw-/0/1766338809350?e=1770854400&v=beta&t=wefB6gisjKvuZQvxrRnjUTNgW3_ZzkWHx_yhhLN8bO8",
-      "https://media.licdn.com/dms/image/v2/D5622AQGsHht0N47axQ/feedshare-shrink_1280/B56ZtB_0srHIAw-/0/1766338809367?e=1770854400&v=beta&t=Zbned-sv58NPTsNyFLBbUFhxTwFEhDBOFZs6Cp2pjuQ",
-      "https://media.licdn.com/dms/image/v2/D5622AQFZChUqOUBskA/feedshare-shrink_2048_1536/B56ZtB_0s.GsA4-/0/1766338809663?e=1770854400&v=beta&t=OiTkRJJkLhnnDtFHY-jVGdQ8niejtWhABp5p-BStxR4",
-      "https://media.licdn.com/dms/image/v2/D5622AQHdm8qBluXtUA/feedshare-shrink_2048_1536/B56Zs8_1snJUA0-/0/1766254929137?e=1770854400&v=beta&t=LG-mjsyD0q8-6pUVSq4YCOifggiJV3PkaGcxjfrZnpQ",
-      "https://media.licdn.com/dms/image/v2/D5622AQGslDjCg8fDQQ/feedshare-shrink_2048_1536/B56Zs8_1soGgAw-/0/1766254928274?e=1770854400&v=beta&t=4nEpIOFp1VWaxaNGzSqktIIbz2h38o2k9CivoUMIEPw",
-      "https://media.licdn.com/dms/image/v2/D5622AQGdqkVwT9ghfw/feedshare-shrink_2048_1536/B56Zsn2hVVG4A0-/0/1765900163653?e=1770854400&v=beta&t=FbLRvSfeXTvescCf653MdAjyjrEQw60nhhgXKdOFHoU",
-      "https://media.licdn.com/dms/image/v2/D5622AQHy6bVU2FIjYA/feedshare-shrink_2048_1536/B56Zsn2hTvGkAw-/0/1765900164008?e=1770854400&v=beta&t=E_tymVkWXyPQNQEG2WqAPl9Mhsz3GoW3PgpMBElcPBc",
-      "https://media.licdn.com/dms/image/v2/D5622AQH8mioqtiX0lQ/feedshare-shrink_2048_1536/B56Zs30XO5J4Aw-/0/1766168033245?e=1770854400&v=beta&t=T1h3Y1eRPvw5XSTA2_yZb6NnceZLt6bJnvbEK0tIYts"
+  "/gallery/gyanwalla/1.jpg",
+  "/gallery/gyanwalla/2.jpg",
+  "/gallery/gyanwalla/3.jpg",
+  "/gallery/gyanwalla/4.jpg",
+  "/gallery/gyanwalla/5.jpg",
     ],
     "build": { "Git": "https://github.com/realsudarshan/lms_platform_with_AI", "WebDemo": "https://gyanwallaacademy.vercel.app/", "AndroidDemo": null }
   },
@@ -640,13 +636,12 @@ export const projects: ProjectType[] = [
       }
     ],
     "gallery": [
-      "https://media.licdn.com/dms/image/v2/D5622AQHExMlxyp0DpQ/feedshare-shrink_2048_1536/B56ZsYlBV2IcAw-/0/1765643918265?e=1770854400&v=beta&t=pdl1DDWgF2zCgkK3DY2m4Fy25gd19cYIse5sLcdXddg",
-      "https://media.licdn.com/dms/image/v2/D5622AQHOjZXhAqb76g/feedshare-shrink_1280/B56ZsYlBVyJEAw-/0/1765643918152?e=1770854400&v=beta&t=Ei5Ae5kYJa6lTTUtxqdlP89tBupQqWWRjM8783MSuio",
-      "https://media.licdn.com/dms/image/v2/D5622AQEzu-UEAkIyKQ/feedshare-shrink_2048_1536/B56ZsYlBUeGkA0-/0/1765643917925?e=1770854400&v=beta&t=b6FZa7_RPuMpI3apH4zX9eOkHxyvKtyPzNulz2XHm7o",
-      "https://media.licdn.com/dms/image/v2/D5622AQECBaDaOr5T3g/feedshare-shrink_2048_1536/B56ZsYlBUaIkA0-/0/1765643917740?e=1770854400&v=beta&t=DpSCkL0QJ-ekFB9XK1qkqffcVjXvcC08Wo0P3Q_tPR8",
-      "https://media.licdn.com/dms/image/v2/D5622AQGMWdUFrlMQHg/feedshare-shrink_2048_1536/B56ZsYlBUKI8Aw-/0/1765643917923?e=1770854400&v=beta&t=nQOO9sbWbxhnmfM1huz6wfRYfsZnD9B6vNlwUhSg_7I",
-      "https://media.licdn.com/dms/image/v2/D5622AQEU6LGy3J6WBQ/feedshare-shrink_2048_1536/B56ZsYlBVkI0Aw-/0/1765643917954?e=1770854400&v=beta&t=X_ScPB4Sz0E6LEmfiSolZS5L-2OjXxcoQCET2WS82yA",
-      "https://media.licdn.com/dms/image/v2/D5622AQFbxd5B1CXIBQ/feedshare-shrink_2048_1536/B56ZsYlBUTGkAw-/0/1765643917728?e=1770854400&v=beta&t=DLV_nFWv307UEwvVhZVFCkEa38k9_G5u66bo98IxVyM",
+      "/gallery/extractor/1.jpg",
+      "/gallery/extractor/2.jpg",
+      "/gallery/extractor/3.jpg",
+      "/gallery/extractor/4.jpg",
+      "/gallery/extractor/5.jpg",
+      "/gallery/extractor/6.jpg",
       "https://www.sudarshandhakal.com.np/images/receipt_tracker_blog/automatic_retry.png",
       "https://www.sudarshandhakal.com.np/images/receipt_tracker_blog/sm_main_img.png",
       
@@ -854,15 +849,12 @@ export const projects: ProjectType[] = [
       "https://www.sudarshandhakal.com.np/images/fromideatodeploymentsero-fero/artitecture.png",
       "https://www.sudarshandhakal.com.np/images/fromideatodeploymentsero-fero/appwriteconsole.png",
       "https://www.sudarshandhakal.com.np/images/fromideatodeploymentsero-fero/frontend.png",
-      "https://media.licdn.com/dms/image/v2/D5622AQF4eOYr-tWC0w/feedshare-shrink_2048_1536/B56ZrYgJg5HYAw-/0/1764568898986?e=1770854400&v=beta&t=s2-8ycqFTlzI81pZfQUBj5N21huLM46GQEbdPr4k9Dk",
-      "https://media.licdn.com/dms/image/v2/D5622AQG_6BTceh74sg/feedshare-shrink_2048_1536/B56ZrYgJh7KACM-/0/1764568899113?e=1770854400&v=beta&t=AjVfgHMhyURW4E0_qW3zMitqbEwXRzn61-ydGDxtdt0",
-      "https://media.licdn.com/dms/image/v2/D5622AQEsBCApKPH_Rg/feedshare-shrink_2048_1536/B56ZrYgJiZJUAw-/0/1764568898752?e=1770854400&v=beta&t=hhwmaVtMCaCTb-9K6kl6lmii2EcA5Z6_av_ICDLi2WM",
-      "https://media.licdn.com/dms/image/v2/D5622AQFml5kcgpv9JA/feedshare-shrink_2048_1536/B56ZrYgJhyLAAw-/0/1764568899237?e=1770854400&v=beta&t=dCdDdoX4vQG6MBnCYb2B4whcbYPq1so1Q6iDUatwUNU",
-      "https://media.licdn.com/dms/image/v2/D5622AQGX-mG0U__7TA/feedshare-shrink_2048_1536/B56ZrYgJijHIAw-/0/1764568899221?e=1770854400&v=beta&t=M5jFN3kQi4k_oI3DFTS6QP4q3cqsVDkSJUcXdXaYnH0",
-      "https://media.licdn.com/dms/image/v2/D5622AQF0qWonIvFJvw/feedshare-shrink_800/B56ZrYgJh7KAAg-/0/1764568898503?e=1770854400&v=beta&t=xg-37FnERmxTxZhE9jxkyMmwJfwvJUVrgB-_cuMHKXE",
-      "https://media.licdn.com/dms/image/v2/D5622AQEyt1XnmL4hjw/feedshare-shrink_2048_1536/B56ZrYgJh3HQAw-/0/1764568899242?e=1770854400&v=beta&t=3-6-IIjt8yVOI3dmRCmDmwSIDqb7BQKAFBzUnZV_i84",
-      "https://media.licdn.com/dms/image/v2/D5622AQEAVGj1bNgO3Q/feedshare-shrink_2048_1536/B56ZrYgJivG4A0-/0/1764568899059?e=1770854400&v=beta&t=rmkUcHMhc9X434rJrNLPP5FZsupmeIkd8w3eD_oFOKU",
-      
+      "/gallery/sero-fero/1.jpg",
+      "/gallery/sero-fero/2.jpg",
+      "/gallery/sero-fero/3.jpg",
+      "/gallery/sero-fero/4.jpg",
+      "/gallery/sero-fero/5.jpg",
+      "/gallery/sero-fero/6.jpg"
     ],
     "build": { "Git": "https://github.com/realsudarshan/social_media", "WebDemo": "https://sero-fero.web.app/sign-in", "AndroidDemo": null }
   },

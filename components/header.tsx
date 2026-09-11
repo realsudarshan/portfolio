@@ -20,7 +20,7 @@ export function Header() {
             href="/"
             className="flex items-center gap-2 font-bold text-base text-slate-900 dark:text-white hover:opacity-80 transition-opacity"
           >
-            <Logo width={32} height={32} />
+            <Logo width={48} height={48} />
             <span className="hidden sm:inline">Sudarshan Dhakal</span>
           </Link>
 
