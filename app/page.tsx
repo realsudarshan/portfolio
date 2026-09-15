@@ -4,6 +4,7 @@ import { getBlogPosts } from 'lib/blog';
 import { sortPosts } from 'lib/sort';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Toolkit } from '@/components/toolkit';
 
 export default async function Page() {
   let allPosts = await getBlogPosts();
@@ -37,7 +38,7 @@ export default async function Page() {
         </div>
       </section>
 
-
+      <Toolkit />
 
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
