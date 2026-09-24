@@ -128,7 +128,7 @@ const About = () => {
                     <li className="flex items-start gap-2"><span>🧠</span><div><strong>Memory</strong>: designing short- and long-term context so agents stay relevant and consistent across conversations</div></li>
                     <li className="flex items-start gap-2"><span>🛡️</span><div><strong>Guardrails</strong>: validating inputs and outputs, and constraining what an agent can say and do</div></li>
                     <li className="flex items-start gap-2"><span>🔐</span><div><strong>Security</strong>: least-privilege tool access, protected secrets, and defenses against prompt injection</div></li>
-                    <li className="flex items-start gap-2"><span>🚀</span><div><strong>Deployment</strong>: shipping agents to production and keeping them reliable, with LangChain and n8n in the toolbox</div></li>
+                    <li className="flex items-start gap-2"><span>🚀</span><div><strong>Deployment</strong>: shipping agents to production and keeping them reliable</div></li>
                 </ul>
             </div>
 
