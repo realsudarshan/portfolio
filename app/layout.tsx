@@ -43,7 +43,15 @@ export const metadata: Metadata = {
     url: 'https://sudarshandhakal.com.np',
     siteName: 'Sudarshan Dhakal',
     locale: 'en_US',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.sudarshandhakal.com.np/sudarshan.jpg',
+        width: 817,
+        height: 817,
+        alt: 'Sudarshan Dhakal',
+      }
+    ]
   },
   robots: {
     index: true,
@@ -58,7 +66,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: 'Sudarshan Dhakal',
-    card: 'summary_large_image'
+    card: 'summary_large_image',
+    images: ['https://www.sudarshandhakal.com.np/sudarshan.jpg']
   },
   manifest: '/site.webmanifest',
   icons: {

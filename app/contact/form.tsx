@@ -75,8 +75,8 @@ export function ContactForm() {
   }
 
   // --- Styled Sub-classes ---
-  const inputClasses = "bg-white/5 border-white/10 focus:border-blue-500/50 focus:ring-blue-500/20 transition-all duration-300 placeholder:text-slate-600 rounded-xl py-6";
-  const labelClasses = "text-slate-300 font-medium ml-1";
+  const inputClasses = "bg-transparent border-slate-200 dark:border-slate-700 focus:border-blue-500 transition-all duration-300 placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl py-6 text-slate-900 dark:text-white";
+  const labelClasses = "text-slate-600 dark:text-slate-300 font-medium ml-1";
 
   return (
     <AnimatePresence mode="wait">
