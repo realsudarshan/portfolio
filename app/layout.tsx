@@ -27,20 +27,20 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sudarshandhakal.com.np'),
+  metadataBase: new URL('https://www.sudarshandhakal.com.np'),
   title: {
-    default: 'Sudarshan Dhakal',
+    default: 'Sudarshan Dhakal – Full-stack & AI Engineer',
     template: '%s - Sudarshan Dhakal'
   },
-  description: 'Sudarshan Dhakal, a seasoned freelance web developer based in Nepal.',
+  description: 'Nepal-based Full Stack & AI Engineer building products that ship.',
   alternates: {
     canonical: '/',
     types: { 'application/rss+xml': '/rss.xml' }
   },
   openGraph: {
-    title: 'Sudarshan Dhakal',
-    description: 'Sudarshan Dhakal, a seasoned freelance web developer based in Nepal.',
-    url: 'https://sudarshandhakal.com.np',
+    title: 'Sudarshan Dhakal – Full-stack & AI Engineer',
+    description: 'Nepal-based Full Stack & AI Engineer building products that ship.',
+    url: 'https://www.sudarshandhakal.com.np',
     siteName: 'Sudarshan Dhakal',
     locale: 'en_US',
     type: 'website',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         url: 'https://www.sudarshandhakal.com.np/sudarshan.jpg',
         width: 817,
         height: 817,
-        alt: 'Sudarshan Dhakal',
+        alt: 'Sudarshan Dhakal, Full-stack and AI Engineer from Nepal',
       }
     ]
   },
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     }
   },
   twitter: {
-    title: 'Sudarshan Dhakal',
+    title: 'Sudarshan Dhakal – Full-stack & AI Engineer',
     card: 'summary_large_image',
     images: ['https://www.sudarshandhakal.com.np/sudarshan.jpg']
   },
@@ -120,6 +120,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Sudarshan Dhakal",
+              "url": "https://www.sudarshandhakal.com.np",
+              "image": "https://www.sudarshandhakal.com.np/sudarshan.jpg",
+              "jobTitle": "Full-stack & AI Engineer",
+              "sameAs": [
+                "https://github.com/realsudarshan",
+                "https://x.com/realsudarsan",
+                "https://www.linkedin.com/in/sudarshan-dhakal-5b4522284"
+              ]
+            })
+          }}
+        />
         </ThemeProvider>
       </body>
     </html>

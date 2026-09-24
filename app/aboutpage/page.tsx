@@ -67,7 +67,7 @@ const About = () => {
                 <div className="flex-shrink-0">
                     <img
                         src="/sudarshan.jpg"
-                        alt="Sudarshan Dhakal"
+                        alt="Sudarshan Dhakal, Full-stack and AI Engineer from Nepal"
                         className="rounded-full w-[200px] h-[200px] md:w-[260px] md:h-[260px] object-cover shadow-lg border-4 border-slate-100 dark:border-slate-800"
                     />
                 </div>
