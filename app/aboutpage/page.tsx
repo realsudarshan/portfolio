@@ -95,6 +95,12 @@ const About = () => {
                     <h4 className="text-xl font-bold mb-4 flex items-center gap-2">🚀 Building right now</h4>
                     <ul className="space-y-3">
                         <li className="flex items-start gap-2">
+                            <span>🌆</span>
+                            <div>
+                                <a href="https://github.com/realsudarshan/realestategear" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline"><strong>Realestate-gear</strong></a>: open-source, self-hostable real estate operating platform powered by Next.js, Express, and PostgreSQL. It combines an AI-driven agent CRM and transaction workspace with a custom-branded public portal for listing discovery and inquiry management.
+                            </div>
+                        </li>
+                        <li className="flex items-start gap-2">
                             <span>💬</span>
                             <div>
                                 <strong>EasyChat Support</strong>: an AI-powered customer support platform for businesses in Nepal, built as production-grade software
@@ -156,6 +162,7 @@ const About = () => {
                                 <tr><td className="p-4 align-top w-1/3">🦀 <strong>Rust</strong></td><td className="p-4">Systems programming and high-performance backends</td></tr>
                                 <tr><td className="p-4 align-top">🐹 <strong>Go</strong></td><td className="p-4">Fast, simple, concurrent services</td></tr>
                                 <tr><td className="p-4 align-top">⛓️ <strong>Blockchain</strong></td><td className="p-4">Smart contracts with Solidity and Solana / Anchor</td></tr>
+                                <tr><td className="p-4 align-top">🏗️ <strong>Real estate development</strong></td><td className="p-4">Understanding property development and investment</td></tr>
                                 <tr><td className="p-4 align-top">💭 <strong>Jev</strong></td><td className="p-4">skips token-by-token generation for instant decisions for AI</td></tr>
                             </tbody>
                         </table>

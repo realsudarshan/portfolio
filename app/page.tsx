@@ -40,14 +40,12 @@ export default async function Page() {
 
       <Toolkit />
 
-      <section className="py-16">
+      <section id="projects" className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <header className="flex flex-row justify-between items-end mb-10">
             <h2 className="text-3xl md:text-4xl font-bold ">Featured Projects</h2>
             <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/realsudarshan"
+              href="#projects"
               className="text-blue-600 font-medium hover:underline capitalize"
             >
               see all projects
