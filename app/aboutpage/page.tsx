@@ -162,7 +162,7 @@ const About = () => {
                                 <tr><td className="p-4 align-top w-1/3">🦀 <strong>Rust</strong></td><td className="p-4">Systems programming and high-performance backends</td></tr>
                                 <tr><td className="p-4 align-top">🐹 <strong>Go</strong></td><td className="p-4">Fast, simple, concurrent services</td></tr>
                                 <tr><td className="p-4 align-top">⛓️ <strong>Blockchain</strong></td><td className="p-4">Smart contracts with Solidity and Solana / Anchor</td></tr>
-                                <tr><td className="p-4 align-top">🏗️ <strong>Real estate development</strong></td><td className="p-4">Understanding property development and investment</td></tr>
+                                <tr><td className="p-4 align-top">🏗️ <strong>Real estate development</strong></td><td className="p-4">Building software, understanding ecosystem, and AI implementation</td></tr>
                                 <tr><td className="p-4 align-top">💭 <strong>Jev</strong></td><td className="p-4">skips token-by-token generation for instant decisions for AI</td></tr>
                             </tbody>
                         </table>
