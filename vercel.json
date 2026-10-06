@@ -1,9 +1,5 @@
 {
     "buildCommand": "pnpm install --no-frozen-lockfile && pnpm run build",
     "installCommand": "pnpm install --no-frozen-lockfile",
-    "build": {
-        "env": {
-            "NODE_VERSION": "24"
-        }
-    }
+    "nodeVersion": "24"
 }
