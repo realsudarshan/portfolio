@@ -43,7 +43,14 @@ const About = () => {
                             <li>Node.js</li>
                             <li>Postgres SQL</li>
                             <li>NextJS</li>
+                            <li>Real estate development</li>
                         </ul>
+                        <div style={{ marginTop: '20px' }}>
+                            <h3 style={{ marginBottom: '10px', fontSize: '18px' }}>Building right now</h3>
+                            <p style={{ fontSize: '16px', lineHeight: '1.6' }}>
+                                🌆 <strong>Realestate-gear</strong>: open-source, self-hostable real estate operating platform powered by Next.js, Express, and PostgreSQL. It combines an AI-driven agent CRM and transaction workspace with a custom-branded public portal for listing discovery and inquiry management.
+                            </p>
+                        </div>
                         <a href="/resume.pdf" download="Sudarshan_Resume.pdf">
                 
             

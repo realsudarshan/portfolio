@@ -73,15 +73,13 @@ export default async function Page() {
           </div>
         </div>
       </section>
-      <section className="[ projects ] [ region ]">
+      <section id="projects" className="[ projects ] [ region ]">
         <div className="[ wrapper ]">
           <header className="cluster" data-align="between">
             <h2 className="fs-700">Featured Projects</h2>
             <div>
               <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/realsudarshan"
+                href="#projects"
                 className="text-capitalize"
               >
                 see all projects
