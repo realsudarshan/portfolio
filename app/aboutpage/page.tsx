@@ -16,7 +16,7 @@ const About = () => {
                             I'm Sudarshan Dhakal
                         </h2>
                         <p className="mt-2 text-lg text-slate-500 dark:text-slate-400 font-medium">
-                            Full-stack &amp; AI Engineer from Nepal 🇳🇵
+                            Founder, Full-stack &amp; AI Engineer from Nepal 🇳🇵
                         </p>
                     </div>
 
@@ -103,13 +103,13 @@ const About = () => {
                         <li className="flex items-start gap-2">
                             <span>💬</span>
                             <div>
-                                <strong>EasyChat Support</strong>: an AI-powered customer support platform for businesses in Nepal, built as production-grade software
+                                <a href="https://easychatsupport.page" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline"><strong>EasyChat Support</strong></a>: founder and developer of an AI-powered customer support platform for businesses in Nepal, built as production-grade software
                             </div>
                         </li>
                         <li className="flex items-start gap-2">
                             <span>🌿</span>
                             <div>
-                                <strong>Ojas</strong>: a second production-grade product, currently in active development
+                                <a href="https://getojas.app" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline"><strong>Ojas</strong></a>: founder and developer of a second production-grade product, currently in active development
                             </div>
                         </li>
                         <li className="flex items-start gap-2">

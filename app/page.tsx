@@ -18,8 +18,10 @@ export default async function Page() {
             Hi👋, I&rsquo;m Sudarshan.
           </h1>
           <p className="text-lg md:text-xl leading-relaxed">
-  I am a Nepal-based  <strong className="text-blue-600 font-semibold">Full Stack Web and Mobile Developer</strong> who 
-  loves turning complex problems into intelligent applications. By 
+  I am a Nepal-based <strong className="text-blue-600 font-semibold">founder and Full Stack Web and Mobile Developer</strong> building
+  <a href="https://easychatsupport.page" target="_blank" rel="noreferrer" className="text-blue-600 underline hover:text-blue-800 transition-colors"> EasyChat Support</a> and
+  <a href="https://getojas.app" target="_blank" rel="noreferrer" className="text-blue-600 underline hover:text-blue-800 transition-colors"> Ojas</a>. I
+  love turning complex problems into intelligent applications. By
   <strong className="text-blue-600 font-semibold"> integrating AI</strong> into my builds, I create seamless digital 
   experiences across all platforms. I also document my technical journey and 
   share thoughts on the web through my{' '}
